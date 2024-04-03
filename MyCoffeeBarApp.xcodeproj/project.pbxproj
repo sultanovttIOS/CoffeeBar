@@ -7,23 +7,35 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BA0DE1E5A22A7EC6213D0FC2 /* Pods_MyCoffeeBarApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFB8A0DBAA34B3A10DC847FB /* Pods_MyCoffeeBarApp.framework */; };
 		CEE71C932BBC468000AD99E4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE71C922BBC468000AD99E4 /* AppDelegate.swift */; };
 		CEE71C952BBC468000AD99E4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE71C942BBC468000AD99E4 /* SceneDelegate.swift */; };
-		CEE71C972BBC468000AD99E4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE71C962BBC468000AD99E4 /* ViewController.swift */; };
-		CEE71C9A2BBC468000AD99E4 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = CEE71C992BBC468000AD99E4 /* Base */; };
+		CEE71C972BBC468000AD99E4 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE71C962BBC468000AD99E4 /* StartViewController.swift */; };
 		CEE71C9C2BBC468200AD99E4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEE71C9B2BBC468200AD99E4 /* Assets.xcassets */; };
 		CEE71C9F2BBC468200AD99E4 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = CEE71C9E2BBC468200AD99E4 /* Base */; };
+		CEE71CAD2BBC4C6500AD99E4 /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE71CAC2BBC4C6500AD99E4 /* StartView.swift */; };
+		CEE71CAF2BBC4CA500AD99E4 /* AuthorizationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE71CAE2BBC4CA500AD99E4 /* AuthorizationView.swift */; };
+		CEE71CB12BBC4E9400AD99E4 /* AuthorizationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE71CB02BBC4E9400AD99E4 /* AuthorizationViewController.swift */; };
+		CEE71CB32BBC4F3C00AD99E4 /* CoffeeBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE71CB22BBC4F3C00AD99E4 /* CoffeeBarViewController.swift */; };
+		CEE71CB52BBC723F00AD99E4 /* CoffeeBarCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE71CB42BBC723F00AD99E4 /* CoffeeBarCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		20910BBD73DDAB26F63591F3 /* Pods-MyCoffeeBarApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyCoffeeBarApp.debug.xcconfig"; path = "Target Support Files/Pods-MyCoffeeBarApp/Pods-MyCoffeeBarApp.debug.xcconfig"; sourceTree = "<group>"; };
+		7232B68FEF9CD0ADC681CDD5 /* Pods-MyCoffeeBarApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyCoffeeBarApp.release.xcconfig"; path = "Target Support Files/Pods-MyCoffeeBarApp/Pods-MyCoffeeBarApp.release.xcconfig"; sourceTree = "<group>"; };
 		CEE71C8F2BBC468000AD99E4 /* MyCoffeeBarApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyCoffeeBarApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEE71C922BBC468000AD99E4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CEE71C942BBC468000AD99E4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		CEE71C962BBC468000AD99E4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		CEE71C992BBC468000AD99E4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		CEE71C962BBC468000AD99E4 /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		CEE71C9B2BBC468200AD99E4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CEE71C9E2BBC468200AD99E4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CEE71CA02BBC468200AD99E4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CEE71CAC2BBC4C6500AD99E4 /* StartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
+		CEE71CAE2BBC4CA500AD99E4 /* AuthorizationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationView.swift; sourceTree = "<group>"; };
+		CEE71CB02BBC4E9400AD99E4 /* AuthorizationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationViewController.swift; sourceTree = "<group>"; };
+		CEE71CB22BBC4F3C00AD99E4 /* CoffeeBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeBarViewController.swift; sourceTree = "<group>"; };
+		CEE71CB42BBC723F00AD99E4 /* CoffeeBarCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeBarCollectionViewCell.swift; sourceTree = "<group>"; };
+		EFB8A0DBAA34B3A10DC847FB /* Pods_MyCoffeeBarApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyCoffeeBarApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +43,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA0DE1E5A22A7EC6213D0FC2 /* Pods_MyCoffeeBarApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		95F551D5497997B5B5F00BEA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				20910BBD73DDAB26F63591F3 /* Pods-MyCoffeeBarApp.debug.xcconfig */,
+				7232B68FEF9CD0ADC681CDD5 /* Pods-MyCoffeeBarApp.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		B3FB7B6274236E8B2AA45615 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EFB8A0DBAA34B3A10DC847FB /* Pods_MyCoffeeBarApp.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		CEE71C862BBC468000AD99E4 = {
 			isa = PBXGroup;
 			children = (
 				CEE71C912BBC468000AD99E4 /* MyCoffeeBarApp */,
 				CEE71C902BBC468000AD99E4 /* Products */,
+				95F551D5497997B5B5F00BEA /* Pods */,
+				B3FB7B6274236E8B2AA45615 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,15 +88,67 @@
 		CEE71C912BBC468000AD99E4 /* MyCoffeeBarApp */ = {
 			isa = PBXGroup;
 			children = (
-				CEE71C922BBC468000AD99E4 /* AppDelegate.swift */,
-				CEE71C942BBC468000AD99E4 /* SceneDelegate.swift */,
-				CEE71C962BBC468000AD99E4 /* ViewController.swift */,
-				CEE71C982BBC468000AD99E4 /* Main.storyboard */,
-				CEE71C9B2BBC468200AD99E4 /* Assets.xcassets */,
-				CEE71C9D2BBC468200AD99E4 /* LaunchScreen.storyboard */,
+				CEE71CA82BBC4A6E00AD99E4 /* Modules */,
+				CEE71CA72BBC496500AD99E4 /* Resourse */,
+				CEE71CA62BBC495500AD99E4 /* AppDelegate */,
 				CEE71CA02BBC468200AD99E4 /* Info.plist */,
 			);
 			path = MyCoffeeBarApp;
+			sourceTree = "<group>";
+		};
+		CEE71CA62BBC495500AD99E4 /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				CEE71C922BBC468000AD99E4 /* AppDelegate.swift */,
+				CEE71C942BBC468000AD99E4 /* SceneDelegate.swift */,
+			);
+			path = AppDelegate;
+			sourceTree = "<group>";
+		};
+		CEE71CA72BBC496500AD99E4 /* Resourse */ = {
+			isa = PBXGroup;
+			children = (
+				CEE71C9D2BBC468200AD99E4 /* LaunchScreen.storyboard */,
+				CEE71C9B2BBC468200AD99E4 /* Assets.xcassets */,
+			);
+			path = Resourse;
+			sourceTree = "<group>";
+		};
+		CEE71CA82BBC4A6E00AD99E4 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				CEE71CAB2BBC4A8600AD99E4 /* CoffeeBar */,
+				CEE71CAA2BBC4A7B00AD99E4 /* Authorization */,
+				CEE71CA92BBC4A7500AD99E4 /* Start */,
+				CEE71C962BBC468000AD99E4 /* StartViewController.swift */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		CEE71CA92BBC4A7500AD99E4 /* Start */ = {
+			isa = PBXGroup;
+			children = (
+				CEE71CAC2BBC4C6500AD99E4 /* StartView.swift */,
+			);
+			path = Start;
+			sourceTree = "<group>";
+		};
+		CEE71CAA2BBC4A7B00AD99E4 /* Authorization */ = {
+			isa = PBXGroup;
+			children = (
+				CEE71CAE2BBC4CA500AD99E4 /* AuthorizationView.swift */,
+				CEE71CB02BBC4E9400AD99E4 /* AuthorizationViewController.swift */,
+			);
+			path = Authorization;
+			sourceTree = "<group>";
+		};
+		CEE71CAB2BBC4A8600AD99E4 /* CoffeeBar */ = {
+			isa = PBXGroup;
+			children = (
+				CEE71CB22BBC4F3C00AD99E4 /* CoffeeBarViewController.swift */,
+				CEE71CB42BBC723F00AD99E4 /* CoffeeBarCollectionViewCell.swift */,
+			);
+			path = CoffeeBar;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +158,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CEE71CA32BBC468200AD99E4 /* Build configuration list for PBXNativeTarget "MyCoffeeBarApp" */;
 			buildPhases = (
+				41A35175097DD97C42881E3D /* [CP] Check Pods Manifest.lock */,
 				CEE71C8B2BBC468000AD99E4 /* Sources */,
 				CEE71C8C2BBC468000AD99E4 /* Frameworks */,
 				CEE71C8D2BBC468000AD99E4 /* Resources */,
+				402B4904BDFF710FE4B81911 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -127,34 +213,72 @@
 			files = (
 				CEE71C9C2BBC468200AD99E4 /* Assets.xcassets in Resources */,
 				CEE71C9F2BBC468200AD99E4 /* Base in Resources */,
-				CEE71C9A2BBC468000AD99E4 /* Base in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		402B4904BDFF710FE4B81911 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MyCoffeeBarApp/Pods-MyCoffeeBarApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MyCoffeeBarApp/Pods-MyCoffeeBarApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MyCoffeeBarApp/Pods-MyCoffeeBarApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		41A35175097DD97C42881E3D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MyCoffeeBarApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		CEE71C8B2BBC468000AD99E4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CEE71C972BBC468000AD99E4 /* ViewController.swift in Sources */,
+				CEE71CB52BBC723F00AD99E4 /* CoffeeBarCollectionViewCell.swift in Sources */,
+				CEE71CB12BBC4E9400AD99E4 /* AuthorizationViewController.swift in Sources */,
+				CEE71C972BBC468000AD99E4 /* StartViewController.swift in Sources */,
 				CEE71C932BBC468000AD99E4 /* AppDelegate.swift in Sources */,
 				CEE71C952BBC468000AD99E4 /* SceneDelegate.swift in Sources */,
+				CEE71CAF2BBC4CA500AD99E4 /* AuthorizationView.swift in Sources */,
+				CEE71CB32BBC4F3C00AD99E4 /* CoffeeBarViewController.swift in Sources */,
+				CEE71CAD2BBC4C6500AD99E4 /* StartView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		CEE71C982BBC468000AD99E4 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				CEE71C992BBC468000AD99E4 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		CEE71C9D2BBC468200AD99E4 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -287,16 +411,17 @@
 		};
 		CEE71CA42BBC468200AD99E4 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 20910BBD73DDAB26F63591F3 /* Pods-MyCoffeeBarApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MyCoffeeBarApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -314,16 +439,17 @@
 		};
 		CEE71CA52BBC468200AD99E4 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7232B68FEF9CD0ADC681CDD5 /* Pods-MyCoffeeBarApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MyCoffeeBarApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (

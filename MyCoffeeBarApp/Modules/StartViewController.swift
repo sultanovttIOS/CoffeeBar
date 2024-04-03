@@ -6,9 +6,16 @@
 //
 
 import UIKit
+import SnapKit
 
-class ViewController: UIViewController {
+class StartViewController: UIViewController {
 
+    private let startView = StartView(frame: .zero)
+    
+    override func loadView() {
+        super.loadView()
+        view = startView
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
