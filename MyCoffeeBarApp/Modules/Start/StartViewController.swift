@@ -16,11 +16,19 @@ class StartViewController: UIViewController {
         super.loadView()
         view = startView
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        setupUI()
     }
 
-
+    private func setupUI() {
+        
+        startView.didLoginBtnTapped = { [weak self] in
+            guard let self else { return }
+            let vc = AuthorizationViewController()
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+    }
 }
 

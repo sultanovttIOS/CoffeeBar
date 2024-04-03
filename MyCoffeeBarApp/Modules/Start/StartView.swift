@@ -22,6 +22,10 @@ class StartView: UIView {
         view.tintColor = .white
         view.layer.cornerRadius = 25
         view.backgroundColor = .orange
+        view.addTarget(
+            self,
+            action: #selector(loginButtonTapped),
+            for: .touchUpInside)
         return view
     }()
     
@@ -31,10 +35,16 @@ class StartView: UIView {
         view.tintColor = .black
         view.layer.cornerRadius = 25
         view.backgroundColor = .gray
+        view.addTarget(
+            self,
+            action: #selector(registrationButtonTapped),
+            for: .touchUpInside)
         return view
     }()
     
-    //weak var delegate: StartViewDelegate?
+    var didLoginBtnTapped: (() -> Void)?
+    
+    var didRegistrationBtnTapped: (() -> Void)?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -61,7 +71,6 @@ class StartView: UIView {
             make.height.equalTo(56)
             make.centerX.equalToSuperview()
         }
-        loginButton.addTarget(self, action: #selector(loginButtonTapped), for: .touchUpInside)
         addSubview(registrationButton)
         registrationButton.snp.makeConstraints { make in
             make.top.equalTo(loginButton.snp.bottom).offset(16)
@@ -69,17 +78,15 @@ class StartView: UIView {
             make.height.equalTo(56)
             make.centerX.equalToSuperview()
         }
-        registrationButton.addTarget(self, action: #selector(registrationButtonTapped), for: .touchUpInside)
     }
     
     @objc
     func loginButtonTapped() {
-        //let ac = AuthorizationViewController()
-        
+        didLoginBtnTapped?()
     }
     
     @objc
     func registrationButtonTapped() {
-        
+        didRegistrationBtnTapped?()
     }
 }

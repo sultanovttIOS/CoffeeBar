@@ -8,10 +8,6 @@
 import UIKit
 import SnapKit
 
-//protocol AuthorizationViewDelegate: AnyObject {
-//
-//}
-
 class AuthorizationView: UIView {
     
     private lazy var titleImage: UIImageView = {
@@ -36,6 +32,10 @@ class AuthorizationView: UIView {
         view.tintColor = .white
         view.layer.cornerRadius = 25
         view.backgroundColor = .orange
+        view.addTarget(
+            self,
+            action: #selector(loginBtnTapped),
+            for: .touchUpInside)
         return view
     }()
     
@@ -43,18 +43,30 @@ class AuthorizationView: UIView {
         let view = UITextField()
         view.placeholder = "555 555 555"
         view.leftViewMode = .always
-        let leftView = UIView(frame: CGRect(x: 0, y: 0, width: 56, height: 56))
-        let image = UIImageView(frame: CGRect(x: 16, y: 16, width: 24, height: 24))
+        let leftView = UIView(frame: CGRect(x: 0,
+                                            y: 0,
+                                            width: 56,
+                                            height: 56))
+        let image = UIImageView(frame: CGRect(x: 16,
+                                              y: 16,
+                                              width: 24,
+                                              height: 24))
         image.image = UIImage(named: "phone_icon")
         image.tintColor = .lightGray
         leftView.addSubview(image)
         view.leftView = leftView
         view.backgroundColor = .systemGray6
         view.layer.cornerRadius = 25
+        view.addTarget(
+            self,
+            action: #selector(numberTFCheck),
+            for: .valueChanged)
         return view
     }()
     
-    //weak var delegate: AuthorizationViewDelegate?
+    var didLoginBtnTapped: (() -> Void)?
+    
+    var didNumberTFCheck: (() -> Void)?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -96,5 +108,15 @@ class AuthorizationView: UIView {
             make.height.equalTo(56)
             make.centerX.equalToSuperview()
         }
+    }
+    
+    @objc 
+    func loginBtnTapped() {
+        didLoginBtnTapped?()
+    }
+    
+    @objc
+    func numberTFCheck() {
+        didNumberTFCheck?()
     }
 }

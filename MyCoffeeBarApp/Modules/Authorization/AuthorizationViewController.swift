@@ -11,6 +11,10 @@ class AuthorizationViewController: UIViewController {
 
     private let authorizationView = AuthorizationView(frame: .zero)
     
+    deinit {
+        print("avc is deinited")
+    }
+    
     override func loadView() {
         super.loadView()
         view = authorizationView
@@ -18,5 +22,12 @@ class AuthorizationViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupUI()
+    }
+    
+    private func setupUI() {
+        authorizationView.didLoginBtnTapped = { [weak self] in
+            guard let self else { return }
+        }
     }
 }

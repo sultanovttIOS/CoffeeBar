@@ -120,7 +120,6 @@
 				CEE71CAB2BBC4A8600AD99E4 /* CoffeeBar */,
 				CEE71CAA2BBC4A7B00AD99E4 /* Authorization */,
 				CEE71CA92BBC4A7500AD99E4 /* Start */,
-				CEE71C962BBC468000AD99E4 /* StartViewController.swift */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -128,6 +127,7 @@
 		CEE71CA92BBC4A7500AD99E4 /* Start */ = {
 			isa = PBXGroup;
 			children = (
+				CEE71C962BBC468000AD99E4 /* StartViewController.swift */,
 				CEE71CAC2BBC4C6500AD99E4 /* StartView.swift */,
 			);
 			path = Start;
