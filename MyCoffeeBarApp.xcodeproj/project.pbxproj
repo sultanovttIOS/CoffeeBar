@@ -17,7 +17,8 @@
 		CEE71CAF2BBC4CA500AD99E4 /* AuthorizationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE71CAE2BBC4CA500AD99E4 /* AuthorizationView.swift */; };
 		CEE71CB12BBC4E9400AD99E4 /* AuthorizationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE71CB02BBC4E9400AD99E4 /* AuthorizationViewController.swift */; };
 		CEE71CB32BBC4F3C00AD99E4 /* CoffeeBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE71CB22BBC4F3C00AD99E4 /* CoffeeBarViewController.swift */; };
-		CEE71CB52BBC723F00AD99E4 /* CoffeeBarCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE71CB42BBC723F00AD99E4 /* CoffeeBarCollectionViewCell.swift */; };
+		CEE71CB52BBC723F00AD99E4 /* CoffeeBarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE71CB42BBC723F00AD99E4 /* CoffeeBarCell.swift */; };
+		CEE71CB72BBD6BB200AD99E4 /* CoffeeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE71CB62BBD6BB200AD99E4 /* CoffeeCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,7 +35,8 @@
 		CEE71CAE2BBC4CA500AD99E4 /* AuthorizationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationView.swift; sourceTree = "<group>"; };
 		CEE71CB02BBC4E9400AD99E4 /* AuthorizationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationViewController.swift; sourceTree = "<group>"; };
 		CEE71CB22BBC4F3C00AD99E4 /* CoffeeBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeBarViewController.swift; sourceTree = "<group>"; };
-		CEE71CB42BBC723F00AD99E4 /* CoffeeBarCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeBarCollectionViewCell.swift; sourceTree = "<group>"; };
+		CEE71CB42BBC723F00AD99E4 /* CoffeeBarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeBarCell.swift; sourceTree = "<group>"; };
+		CEE71CB62BBD6BB200AD99E4 /* CoffeeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeCell.swift; sourceTree = "<group>"; };
 		EFB8A0DBAA34B3A10DC847FB /* Pods_MyCoffeeBarApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyCoffeeBarApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -146,7 +148,8 @@
 			isa = PBXGroup;
 			children = (
 				CEE71CB22BBC4F3C00AD99E4 /* CoffeeBarViewController.swift */,
-				CEE71CB42BBC723F00AD99E4 /* CoffeeBarCollectionViewCell.swift */,
+				CEE71CB42BBC723F00AD99E4 /* CoffeeBarCell.swift */,
+				CEE71CB62BBD6BB200AD99E4 /* CoffeeCell.swift */,
 			);
 			path = CoffeeBar;
 			sourceTree = "<group>";
@@ -265,11 +268,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CEE71CB52BBC723F00AD99E4 /* CoffeeBarCollectionViewCell.swift in Sources */,
+				CEE71CB52BBC723F00AD99E4 /* CoffeeBarCell.swift in Sources */,
 				CEE71CB12BBC4E9400AD99E4 /* AuthorizationViewController.swift in Sources */,
 				CEE71C972BBC468000AD99E4 /* StartViewController.swift in Sources */,
 				CEE71C932BBC468000AD99E4 /* AppDelegate.swift in Sources */,
 				CEE71C952BBC468000AD99E4 /* SceneDelegate.swift in Sources */,
+				CEE71CB72BBD6BB200AD99E4 /* CoffeeCell.swift in Sources */,
 				CEE71CAF2BBC4CA500AD99E4 /* AuthorizationView.swift in Sources */,
 				CEE71CB32BBC4F3C00AD99E4 /* CoffeeBarViewController.swift in Sources */,
 				CEE71CAD2BBC4C6500AD99E4 /* StartView.swift in Sources */,
