@@ -8,10 +8,7 @@
 import UIKit
 import SnapKit
 
-struct CoffeeBar {
-    let title: String
-}
-class CoffeeBarCell: UICollectionViewCell {
+class MenuBarCell: UICollectionViewCell {
 
     static let reuseId = "coffeeBar_cell"
     
@@ -42,6 +39,7 @@ class CoffeeBarCell: UICollectionViewCell {
             make.centerY.equalToSuperview()
         }
     }
+    
     func fill(with: CoffeeBar) {
         titleLabel.text = with.title
     }

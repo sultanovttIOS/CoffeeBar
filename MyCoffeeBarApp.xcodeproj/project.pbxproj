@@ -16,9 +16,18 @@
 		CEE71CAD2BBC4C6500AD99E4 /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE71CAC2BBC4C6500AD99E4 /* StartView.swift */; };
 		CEE71CAF2BBC4CA500AD99E4 /* AuthorizationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE71CAE2BBC4CA500AD99E4 /* AuthorizationView.swift */; };
 		CEE71CB12BBC4E9400AD99E4 /* AuthorizationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE71CB02BBC4E9400AD99E4 /* AuthorizationViewController.swift */; };
-		CEE71CB32BBC4F3C00AD99E4 /* CoffeeBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE71CB22BBC4F3C00AD99E4 /* CoffeeBarViewController.swift */; };
-		CEE71CB52BBC723F00AD99E4 /* CoffeeBarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE71CB42BBC723F00AD99E4 /* CoffeeBarCell.swift */; };
-		CEE71CB72BBD6BB200AD99E4 /* CoffeeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE71CB62BBD6BB200AD99E4 /* CoffeeCell.swift */; };
+		CEE71CB52BBC723F00AD99E4 /* MenuBarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE71CB42BBC723F00AD99E4 /* MenuBarCell.swift */; };
+		CEE71CB72BBD6BB200AD99E4 /* ProductsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE71CB62BBD6BB200AD99E4 /* ProductsCell.swift */; };
+		CEE71CBF2BBE852000AD99E4 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE71CBE2BBE852000AD99E4 /* DataManager.swift */; };
+		CEE71CC22BBEC13700AD99E4 /* ItemInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE71CC12BBEC13700AD99E4 /* ItemInfoViewController.swift */; };
+		CEE71CC52BBEC2E500AD99E4 /* TapBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE71CC42BBEC2E500AD99E4 /* TapBarViewController.swift */; };
+		CEE71CC82BBEC48E00AD99E4 /* BasketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE71CC72BBEC48E00AD99E4 /* BasketViewController.swift */; };
+		CEE71CCA2BBFD7AB00AD99E4 /* QrButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE71CC92BBFD7AB00AD99E4 /* QrButton.swift */; };
+		CEE71CCC2BBFD93600AD99E4 /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE71CCB2BBFD93600AD99E4 /* CustomTabBar.swift */; };
+		CEE71CCF2BBFEC3500AD99E4 /* JSONParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE71CCE2BBFEC3500AD99E4 /* JSONParser.swift */; };
+		CEE71CD22BBFF0EC00AD99E4 /* ProductModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE71CD12BBFF0EC00AD99E4 /* ProductModel.swift */; };
+		CEE71CD42BC007B900AD99E4 /*  MenuBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE71CB22BBC4F3C00AD99E4 /*  MenuBarViewController.swift */; };
+		CEE71CD52BC007E500AD99E4 /* Products.json in Resources */ = {isa = PBXBuildFile; fileRef = CEE71CD02BBFEEAC00AD99E4 /* Products.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,9 +43,18 @@
 		CEE71CAC2BBC4C6500AD99E4 /* StartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
 		CEE71CAE2BBC4CA500AD99E4 /* AuthorizationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationView.swift; sourceTree = "<group>"; };
 		CEE71CB02BBC4E9400AD99E4 /* AuthorizationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationViewController.swift; sourceTree = "<group>"; };
-		CEE71CB22BBC4F3C00AD99E4 /* CoffeeBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeBarViewController.swift; sourceTree = "<group>"; };
-		CEE71CB42BBC723F00AD99E4 /* CoffeeBarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeBarCell.swift; sourceTree = "<group>"; };
-		CEE71CB62BBD6BB200AD99E4 /* CoffeeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeCell.swift; sourceTree = "<group>"; };
+		CEE71CB22BBC4F3C00AD99E4 /*  MenuBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = " MenuBarViewController.swift"; sourceTree = "<group>"; };
+		CEE71CB42BBC723F00AD99E4 /* MenuBarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarCell.swift; sourceTree = "<group>"; };
+		CEE71CB62BBD6BB200AD99E4 /* ProductsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsCell.swift; sourceTree = "<group>"; };
+		CEE71CBE2BBE852000AD99E4 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		CEE71CC12BBEC13700AD99E4 /* ItemInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemInfoViewController.swift; sourceTree = "<group>"; };
+		CEE71CC42BBEC2E500AD99E4 /* TapBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapBarViewController.swift; sourceTree = "<group>"; };
+		CEE71CC72BBEC48E00AD99E4 /* BasketViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketViewController.swift; sourceTree = "<group>"; };
+		CEE71CC92BBFD7AB00AD99E4 /* QrButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QrButton.swift; sourceTree = "<group>"; };
+		CEE71CCB2BBFD93600AD99E4 /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
+		CEE71CCE2BBFEC3500AD99E4 /* JSONParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONParser.swift; sourceTree = "<group>"; };
+		CEE71CD02BBFEEAC00AD99E4 /* Products.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Products.json; sourceTree = "<group>"; };
+		CEE71CD12BBFF0EC00AD99E4 /* ProductModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductModel.swift; sourceTree = "<group>"; };
 		EFB8A0DBAA34B3A10DC847FB /* Pods_MyCoffeeBarApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyCoffeeBarApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -90,6 +108,7 @@
 		CEE71C912BBC468000AD99E4 /* MyCoffeeBarApp */ = {
 			isa = PBXGroup;
 			children = (
+				CEE71CCD2BBFEC1E00AD99E4 /* DTO */,
 				CEE71CA82BBC4A6E00AD99E4 /* Modules */,
 				CEE71CA72BBC496500AD99E4 /* Resourse */,
 				CEE71CA62BBC495500AD99E4 /* AppDelegate */,
@@ -119,7 +138,10 @@
 		CEE71CA82BBC4A6E00AD99E4 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				CEE71CAB2BBC4A8600AD99E4 /* CoffeeBar */,
+				CEE71CC62BBEC46A00AD99E4 /* Trash */,
+				CEE71CC32BBEC2B700AD99E4 /* TapBar */,
+				CEE71CC02BBEC0D200AD99E4 /* ItemInfo */,
+				CEE71CAB2BBC4A8600AD99E4 /* Home */,
 				CEE71CAA2BBC4A7B00AD99E4 /* Authorization */,
 				CEE71CA92BBC4A7500AD99E4 /* Start */,
 			);
@@ -144,14 +166,51 @@
 			path = Authorization;
 			sourceTree = "<group>";
 		};
-		CEE71CAB2BBC4A8600AD99E4 /* CoffeeBar */ = {
+		CEE71CAB2BBC4A8600AD99E4 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				CEE71CB22BBC4F3C00AD99E4 /* CoffeeBarViewController.swift */,
-				CEE71CB42BBC723F00AD99E4 /* CoffeeBarCell.swift */,
-				CEE71CB62BBD6BB200AD99E4 /* CoffeeCell.swift */,
+				CEE71CB22BBC4F3C00AD99E4 /*  MenuBarViewController.swift */,
+				CEE71CB42BBC723F00AD99E4 /* MenuBarCell.swift */,
+				CEE71CB62BBD6BB200AD99E4 /* ProductsCell.swift */,
+				CEE71CBE2BBE852000AD99E4 /* DataManager.swift */,
 			);
-			path = CoffeeBar;
+			path = Home;
+			sourceTree = "<group>";
+		};
+		CEE71CC02BBEC0D200AD99E4 /* ItemInfo */ = {
+			isa = PBXGroup;
+			children = (
+				CEE71CC12BBEC13700AD99E4 /* ItemInfoViewController.swift */,
+			);
+			path = ItemInfo;
+			sourceTree = "<group>";
+		};
+		CEE71CC32BBEC2B700AD99E4 /* TapBar */ = {
+			isa = PBXGroup;
+			children = (
+				CEE71CC42BBEC2E500AD99E4 /* TapBarViewController.swift */,
+				CEE71CC92BBFD7AB00AD99E4 /* QrButton.swift */,
+				CEE71CCB2BBFD93600AD99E4 /* CustomTabBar.swift */,
+			);
+			path = TapBar;
+			sourceTree = "<group>";
+		};
+		CEE71CC62BBEC46A00AD99E4 /* Trash */ = {
+			isa = PBXGroup;
+			children = (
+				CEE71CC72BBEC48E00AD99E4 /* BasketViewController.swift */,
+			);
+			path = Trash;
+			sourceTree = "<group>";
+		};
+		CEE71CCD2BBFEC1E00AD99E4 /* DTO */ = {
+			isa = PBXGroup;
+			children = (
+				CEE71CCE2BBFEC3500AD99E4 /* JSONParser.swift */,
+				CEE71CD02BBFEEAC00AD99E4 /* Products.json */,
+				CEE71CD12BBFF0EC00AD99E4 /* ProductModel.swift */,
+			);
+			path = DTO;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -216,6 +275,7 @@
 			files = (
 				CEE71C9C2BBC468200AD99E4 /* Assets.xcassets in Resources */,
 				CEE71C9F2BBC468200AD99E4 /* Base in Resources */,
+				CEE71CD52BC007E500AD99E4 /* Products.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -268,15 +328,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CEE71CB52BBC723F00AD99E4 /* CoffeeBarCell.swift in Sources */,
+				CEE71CB52BBC723F00AD99E4 /* MenuBarCell.swift in Sources */,
+				CEE71CCC2BBFD93600AD99E4 /* CustomTabBar.swift in Sources */,
+				CEE71CCF2BBFEC3500AD99E4 /* JSONParser.swift in Sources */,
+				CEE71CD42BC007B900AD99E4 /*  MenuBarViewController.swift in Sources */,
+				CEE71CD22BBFF0EC00AD99E4 /* ProductModel.swift in Sources */,
 				CEE71CB12BBC4E9400AD99E4 /* AuthorizationViewController.swift in Sources */,
+				CEE71CC52BBEC2E500AD99E4 /* TapBarViewController.swift in Sources */,
 				CEE71C972BBC468000AD99E4 /* StartViewController.swift in Sources */,
 				CEE71C932BBC468000AD99E4 /* AppDelegate.swift in Sources */,
 				CEE71C952BBC468000AD99E4 /* SceneDelegate.swift in Sources */,
-				CEE71CB72BBD6BB200AD99E4 /* CoffeeCell.swift in Sources */,
+				CEE71CB72BBD6BB200AD99E4 /* ProductsCell.swift in Sources */,
 				CEE71CAF2BBC4CA500AD99E4 /* AuthorizationView.swift in Sources */,
-				CEE71CB32BBC4F3C00AD99E4 /* CoffeeBarViewController.swift in Sources */,
+				CEE71CC22BBEC13700AD99E4 /* ItemInfoViewController.swift in Sources */,
 				CEE71CAD2BBC4C6500AD99E4 /* StartView.swift in Sources */,
+				CEE71CBF2BBE852000AD99E4 /* DataManager.swift in Sources */,
+				CEE71CCA2BBFD7AB00AD99E4 /* QrButton.swift in Sources */,
+				CEE71CC82BBEC48E00AD99E4 /* BasketViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
