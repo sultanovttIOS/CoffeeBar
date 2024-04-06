@@ -19,7 +19,7 @@
 		CEE71CB52BBC723F00AD99E4 /* MenuBarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE71CB42BBC723F00AD99E4 /* MenuBarCell.swift */; };
 		CEE71CB72BBD6BB200AD99E4 /* ProductsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE71CB62BBD6BB200AD99E4 /* ProductsCell.swift */; };
 		CEE71CBF2BBE852000AD99E4 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE71CBE2BBE852000AD99E4 /* DataManager.swift */; };
-		CEE71CC22BBEC13700AD99E4 /* ItemInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE71CC12BBEC13700AD99E4 /* ItemInfoViewController.swift */; };
+		CEE71CC22BBEC13700AD99E4 /* ProductInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE71CC12BBEC13700AD99E4 /* ProductInfoViewController.swift */; };
 		CEE71CC52BBEC2E500AD99E4 /* TapBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE71CC42BBEC2E500AD99E4 /* TapBarViewController.swift */; };
 		CEE71CC82BBEC48E00AD99E4 /* BasketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE71CC72BBEC48E00AD99E4 /* BasketViewController.swift */; };
 		CEE71CCA2BBFD7AB00AD99E4 /* QrButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE71CC92BBFD7AB00AD99E4 /* QrButton.swift */; };
@@ -47,7 +47,7 @@
 		CEE71CB42BBC723F00AD99E4 /* MenuBarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarCell.swift; sourceTree = "<group>"; };
 		CEE71CB62BBD6BB200AD99E4 /* ProductsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsCell.swift; sourceTree = "<group>"; };
 		CEE71CBE2BBE852000AD99E4 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
-		CEE71CC12BBEC13700AD99E4 /* ItemInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemInfoViewController.swift; sourceTree = "<group>"; };
+		CEE71CC12BBEC13700AD99E4 /* ProductInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductInfoViewController.swift; sourceTree = "<group>"; };
 		CEE71CC42BBEC2E500AD99E4 /* TapBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapBarViewController.swift; sourceTree = "<group>"; };
 		CEE71CC72BBEC48E00AD99E4 /* BasketViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketViewController.swift; sourceTree = "<group>"; };
 		CEE71CC92BBFD7AB00AD99E4 /* QrButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QrButton.swift; sourceTree = "<group>"; };
@@ -180,7 +180,7 @@
 		CEE71CC02BBEC0D200AD99E4 /* ItemInfo */ = {
 			isa = PBXGroup;
 			children = (
-				CEE71CC12BBEC13700AD99E4 /* ItemInfoViewController.swift */,
+				CEE71CC12BBEC13700AD99E4 /* ProductInfoViewController.swift */,
 			);
 			path = ItemInfo;
 			sourceTree = "<group>";
@@ -340,7 +340,7 @@
 				CEE71C952BBC468000AD99E4 /* SceneDelegate.swift in Sources */,
 				CEE71CB72BBD6BB200AD99E4 /* ProductsCell.swift in Sources */,
 				CEE71CAF2BBC4CA500AD99E4 /* AuthorizationView.swift in Sources */,
-				CEE71CC22BBEC13700AD99E4 /* ItemInfoViewController.swift in Sources */,
+				CEE71CC22BBEC13700AD99E4 /* ProductInfoViewController.swift in Sources */,
 				CEE71CAD2BBC4C6500AD99E4 /* StartView.swift in Sources */,
 				CEE71CBF2BBE852000AD99E4 /* DataManager.swift in Sources */,
 				CEE71CCA2BBFD7AB00AD99E4 /* QrButton.swift in Sources */,

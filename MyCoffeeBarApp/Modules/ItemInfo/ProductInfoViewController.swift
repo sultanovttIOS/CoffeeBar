@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class ItemInfoViewController: UIViewController {
+class ProductInfoViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

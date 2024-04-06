@@ -37,7 +37,6 @@ class  MenuBarViewController: UIViewController {
     private lazy var productsCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
-        //layout.minimumLineSpacing = 18
         layout.minimumInteritemSpacing = 15
         let view = UICollectionView(frame: .zero,
                                     collectionViewLayout: layout)
