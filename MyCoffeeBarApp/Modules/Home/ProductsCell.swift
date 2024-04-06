@@ -147,6 +147,12 @@ class ProductsCell: UICollectionViewCell {
         countLabel.text = String(model.counter)
     }
     
+//    func fill(with model: ProductModel) {
+//        cellImage.image = UIImage(named: model.category.productImage)
+//           titleLabel.text = model.category.productName
+//           descriptionLabel.text = model.category.productDescription
+//           priceLabel.text = model.category.productPrice
+//       }
     func fill(with model: ProductModel) {
         cellImage.image = UIImage(named: model.productImage)
         titleLabel.text = model.productName

@@ -111,12 +111,12 @@ class AuthorizationView: UIView {
     }
     
     @objc 
-    func loginBtnTapped() {
+    private func loginBtnTapped() {
         didLoginBtnTapped?()
     }
     
     @objc
-    func numberTFCheck() {
+    private func numberTFCheck() {
         didNumberTFCheck?()
     }
 }

@@ -81,12 +81,12 @@ class StartView: UIView {
     }
     
     @objc
-    func loginButtonTapped() {
+    private func loginButtonTapped() {
         didLoginBtnTapped?()
     }
     
     @objc
-    func registrationButtonTapped() {
+    private func registrationButtonTapped() {
         didRegistrationBtnTapped?()
     }
 }

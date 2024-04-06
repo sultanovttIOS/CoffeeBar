@@ -14,9 +14,9 @@ class MenuBarCell: UICollectionViewCell {
     
     private let titleLabel: UILabel = {
         let view = UILabel()
-        view.font = .systemFont(ofSize: 15)
+        view.font = .systemFont(ofSize: 16)
         view.textAlignment = .center
-        view.textColor = .white
+        view.textColor = .label
         return view
     }()
     
@@ -24,7 +24,6 @@ class MenuBarCell: UICollectionViewCell {
         super.init(frame: frame)
         layer.cornerRadius = 16
         clipsToBounds = true
-        backgroundColor = .purple
         setupConstraints()
     }
     

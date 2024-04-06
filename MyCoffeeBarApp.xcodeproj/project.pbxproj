@@ -140,7 +140,7 @@
 			children = (
 				CEE71CC62BBEC46A00AD99E4 /* Trash */,
 				CEE71CC32BBEC2B700AD99E4 /* TapBar */,
-				CEE71CC02BBEC0D200AD99E4 /* ItemInfo */,
+				CEE71CC02BBEC0D200AD99E4 /* Product */,
 				CEE71CAB2BBC4A8600AD99E4 /* Home */,
 				CEE71CAA2BBC4A7B00AD99E4 /* Authorization */,
 				CEE71CA92BBC4A7500AD99E4 /* Start */,
@@ -177,12 +177,12 @@
 			path = Home;
 			sourceTree = "<group>";
 		};
-		CEE71CC02BBEC0D200AD99E4 /* ItemInfo */ = {
+		CEE71CC02BBEC0D200AD99E4 /* Product */ = {
 			isa = PBXGroup;
 			children = (
 				CEE71CC12BBEC13700AD99E4 /* ProductInfoViewController.swift */,
 			);
-			path = ItemInfo;
+			path = Product;
 			sourceTree = "<group>";
 		};
 		CEE71CC32BBEC2B700AD99E4 /* TapBar */ = {

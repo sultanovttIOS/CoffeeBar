@@ -8,7 +8,6 @@
 import UIKit
 import SnapKit
 
-
 class  MenuBarViewController: UIViewController {
     
     private lazy var menuBarCollectionView: UICollectionView = {
@@ -19,12 +18,12 @@ class  MenuBarViewController: UIViewController {
                                     collectionViewLayout: layout)
         view.dataSource = self
         view.delegate = self
-    view.register(MenuBarCell.self,
+        view.register(MenuBarCell.self,
                       forCellWithReuseIdentifier: MenuBarCell.reuseId)
         view.showsHorizontalScrollIndicator = false
         return view
     }()
-        
+    
     private lazy var titleLabel: UILabel = {
         let view = UILabel()
         view.text = "Кофе"
@@ -43,7 +42,7 @@ class  MenuBarViewController: UIViewController {
         view.dataSource = self
         view.delegate = self
         view.register(ProductsCell.self,
-                    forCellWithReuseIdentifier: ProductsCell.reuseId)
+                      forCellWithReuseIdentifier: ProductsCell.reuseId)
         view.showsVerticalScrollIndicator = false
         return view
     }()
@@ -53,7 +52,7 @@ class  MenuBarViewController: UIViewController {
         CoffeeBar(title: "Выпечка"),
         CoffeeBar(title: "Десерты"),
         CoffeeBar(title: "Коктейли")]
-
+    
     private var counter = CounterModel(counter: 0)
     
     private var products: [ProductModel] = []
@@ -71,22 +70,23 @@ class  MenuBarViewController: UIViewController {
     }
     
     private func fetchProducts() {
-            let parser = JSONParser()
-            if let url = Bundle.main.url(forResource: "Products", withExtension: "json"),
-               let data = try? Data(contentsOf: url) {
-                
-                parser.decode(with: data){ [weak self] (result: Result<[ProductModel], Error>) in
-                    guard let self else { return }
-                    switch result {
-                    case .success(let products):
-                        self.products = products
-                        self.productsCollectionView.reloadData()
-                    case .failure(let error):
-                        print(error)
-                    }
+        let parser = JSONParser()
+        if let url = Bundle.main.url(forResource: "Products",
+                                     withExtension: "json"),
+           let data = try? Data(contentsOf: url) {
+            parser.decode(with: data){ [weak self] (result: Result<[ProductModel],
+                                                    Error>) in
+                guard let self else { return }
+                switch result {
+                case .success(let products):
+                    self.products = products
+                    self.productsCollectionView.reloadData()
+                case .failure(let error):
+                    print(error)
                 }
             }
         }
+    }
     
     private func setupNavigationItem() {
         navigationItem.title = "Меню"
@@ -202,5 +202,25 @@ extension  MenuBarViewController: CoffeeCounterDelegate {
             counter.counter = 10
         }
         productsCollectionView.reloadData()
+    }
+}
+
+extension MenuBarViewController: UICollectionViewDelegate {
+    
+    //MARK: didSelectItemAt
+    func collectionView(_ collectionView: UICollectionView,
+                        didSelectItemAt indexPath: IndexPath) {
+        if collectionView == menuBarCollectionView {
+            if let cell = menuBarCollectionView.cellForItem(at: indexPath) {
+                cell.backgroundColor = .purple
+            }
+        }
+    }
+    
+    //MARK: didDeselectItemAt
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        if let cell = menuBarCollectionView.cellForItem(at: indexPath) {
+            cell.backgroundColor = .clear
+        }
     }
 }

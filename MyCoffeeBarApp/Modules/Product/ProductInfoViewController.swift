@@ -8,11 +8,10 @@
 import UIKit
 import SnapKit
 
-class ProductInfoViewController: UIViewController {
+class ProductsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setupUI()
     }
     
