@@ -9,7 +9,6 @@ import UIKit
 import SnapKit
 
 class MenuBarCell: UICollectionViewCell {
-
     static let reuseId = "coffeeBar_cell"
     
     private let titleLabel: UILabel = {

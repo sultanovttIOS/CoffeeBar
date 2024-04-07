@@ -14,7 +14,6 @@ protocol CoffeeCounterDelegate: AnyObject {
 }
 
 class ProductsCell: UICollectionViewCell {
-
     static let reuseId = "coffee_cell"
     
     private lazy var cellImage: UIImageView = {
@@ -115,6 +114,7 @@ class ProductsCell: UICollectionViewCell {
         stackLabel.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(8)
             make.leading.equalTo(cellImage.snp.trailing).offset(16)
+            make.width.equalTo(144)
             make.bottom.equalToSuperview().offset(-18)
         }
         stackLabel.addArrangedSubview(titleLabel)
@@ -147,16 +147,10 @@ class ProductsCell: UICollectionViewCell {
         countLabel.text = String(model.counter)
     }
     
-//    func fill(with model: ProductModel) {
-//        cellImage.image = UIImage(named: model.category.productImage)
-//           titleLabel.text = model.category.productName
-//           descriptionLabel.text = model.category.productDescription
-//           priceLabel.text = model.category.productPrice
-//       }
-    func fill(with model: ProductModel) {
-        cellImage.image = UIImage(named: model.productImage)
-        titleLabel.text = model.productName
-        descriptionLabel.text = model.productDescription
-        priceLabel.text = model.productPrice
+    func fill(with model: Product) {
+        cellImage.image = UIImage(named: model.thumbnail)
+        titleLabel.text = model.title
+        descriptionLabel.text = model.description
+        priceLabel.text = String(model.price)
     }
 }

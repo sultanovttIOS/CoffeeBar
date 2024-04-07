@@ -25,9 +25,9 @@
 		CEE71CCA2BBFD7AB00AD99E4 /* QrButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE71CC92BBFD7AB00AD99E4 /* QrButton.swift */; };
 		CEE71CCC2BBFD93600AD99E4 /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE71CCB2BBFD93600AD99E4 /* CustomTabBar.swift */; };
 		CEE71CCF2BBFEC3500AD99E4 /* JSONParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE71CCE2BBFEC3500AD99E4 /* JSONParser.swift */; };
-		CEE71CD22BBFF0EC00AD99E4 /* ProductModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE71CD12BBFF0EC00AD99E4 /* ProductModel.swift */; };
 		CEE71CD42BC007B900AD99E4 /*  MenuBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE71CB22BBC4F3C00AD99E4 /*  MenuBarViewController.swift */; };
-		CEE71CD52BC007E500AD99E4 /* Products.json in Resources */ = {isa = PBXBuildFile; fileRef = CEE71CD02BBFEEAC00AD99E4 /* Products.json */; };
+		CEE71CDC2BC2932500AD99E4 /* NetworkLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE71CDB2BC2932500AD99E4 /* NetworkLayer.swift */; };
+		CEE71CDE2BC2937F00AD99E4 /* Products.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE71CDD2BC2937F00AD99E4 /* Products.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,8 +53,8 @@
 		CEE71CC92BBFD7AB00AD99E4 /* QrButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QrButton.swift; sourceTree = "<group>"; };
 		CEE71CCB2BBFD93600AD99E4 /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
 		CEE71CCE2BBFEC3500AD99E4 /* JSONParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONParser.swift; sourceTree = "<group>"; };
-		CEE71CD02BBFEEAC00AD99E4 /* Products.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Products.json; sourceTree = "<group>"; };
-		CEE71CD12BBFF0EC00AD99E4 /* ProductModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductModel.swift; sourceTree = "<group>"; };
+		CEE71CDB2BC2932500AD99E4 /* NetworkLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkLayer.swift; sourceTree = "<group>"; };
+		CEE71CDD2BC2937F00AD99E4 /* Products.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Products.swift; sourceTree = "<group>"; };
 		EFB8A0DBAA34B3A10DC847FB /* Pods_MyCoffeeBarApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyCoffeeBarApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -108,7 +108,7 @@
 		CEE71C912BBC468000AD99E4 /* MyCoffeeBarApp */ = {
 			isa = PBXGroup;
 			children = (
-				CEE71CCD2BBFEC1E00AD99E4 /* DTO */,
+				CEE71CD62BC26A4E00AD99E4 /* Model */,
 				CEE71CA82BBC4A6E00AD99E4 /* Modules */,
 				CEE71CA72BBC496500AD99E4 /* Resourse */,
 				CEE71CA62BBC495500AD99E4 /* AppDelegate */,
@@ -207,10 +207,18 @@
 			isa = PBXGroup;
 			children = (
 				CEE71CCE2BBFEC3500AD99E4 /* JSONParser.swift */,
-				CEE71CD02BBFEEAC00AD99E4 /* Products.json */,
-				CEE71CD12BBFF0EC00AD99E4 /* ProductModel.swift */,
+				CEE71CDB2BC2932500AD99E4 /* NetworkLayer.swift */,
+				CEE71CDD2BC2937F00AD99E4 /* Products.swift */,
 			);
 			path = DTO;
+			sourceTree = "<group>";
+		};
+		CEE71CD62BC26A4E00AD99E4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CEE71CCD2BBFEC1E00AD99E4 /* DTO */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -275,7 +283,6 @@
 			files = (
 				CEE71C9C2BBC468200AD99E4 /* Assets.xcassets in Resources */,
 				CEE71C9F2BBC468200AD99E4 /* Base in Resources */,
-				CEE71CD52BC007E500AD99E4 /* Products.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -330,11 +337,12 @@
 			files = (
 				CEE71CB52BBC723F00AD99E4 /* MenuBarCell.swift in Sources */,
 				CEE71CCC2BBFD93600AD99E4 /* CustomTabBar.swift in Sources */,
+				CEE71CDE2BC2937F00AD99E4 /* Products.swift in Sources */,
 				CEE71CCF2BBFEC3500AD99E4 /* JSONParser.swift in Sources */,
 				CEE71CD42BC007B900AD99E4 /*  MenuBarViewController.swift in Sources */,
-				CEE71CD22BBFF0EC00AD99E4 /* ProductModel.swift in Sources */,
 				CEE71CB12BBC4E9400AD99E4 /* AuthorizationViewController.swift in Sources */,
 				CEE71CC52BBEC2E500AD99E4 /* TapBarViewController.swift in Sources */,
+				CEE71CDC2BC2932500AD99E4 /* NetworkLayer.swift in Sources */,
 				CEE71C972BBC468000AD99E4 /* StartViewController.swift in Sources */,
 				CEE71C932BBC468000AD99E4 /* AppDelegate.swift in Sources */,
 				CEE71C952BBC468000AD99E4 /* SceneDelegate.swift in Sources */,

@@ -54,42 +54,23 @@ class  MenuBarViewController: UIViewController {
         CoffeeBar(title: "Коктейли")]
     
     private var counter = CounterModel(counter: 0)
-    
-    private var products: [ProductModel] = []
+    private var products: [Product] = []
+    private let networkLayer = NetworkLayer()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        fetchProducts()
     }
     
     private func setupUI() {
         view.backgroundColor = .systemBackground
         setupConstraints()
         setupNavigationItem()
-        fetchProducts()
-    }
-    
-    private func fetchProducts() {
-        let parser = JSONParser()
-        if let url = Bundle.main.url(forResource: "Products",
-                                     withExtension: "json"),
-           let data = try? Data(contentsOf: url) {
-            parser.decode(with: data){ [weak self] (result: Result<[ProductModel],
-                                                    Error>) in
-                guard let self else { return }
-                switch result {
-                case .success(let products):
-                    self.products = products
-                    self.productsCollectionView.reloadData()
-                case .failure(let error):
-                    print(error)
-                }
-            }
-        }
     }
     
     private func setupNavigationItem() {
-        navigationItem.title = "Меню"
+        navigationController?.navigationItem.title = "Menu"
     }
     
     private func setupConstraints() {
@@ -113,18 +94,32 @@ class  MenuBarViewController: UIViewController {
             make.horizontalEdges.equalToSuperview().inset(16)
         }
     }
+    
+    private func fetchProducts() {
+        networkLayer.fetchProducts { result in
+            switch result {
+            case .success(let products):
+                //print(products)
+                DispatchQueue.main.async {
+                    self.products = products
+                    self.productsCollectionView.reloadData()
+                }
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
 }
 
 extension  MenuBarViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView,
                         numberOfItemsInSection section: Int) -> Int {
-        if collectionView == productsCollectionView {
-            return products.count
-        } else if collectionView == menuBarCollectionView {
+        if collectionView == menuBarCollectionView {
             return data.count
-        } else {
-            return 0
+        } else if collectionView == productsCollectionView {
+            return products.count
         }
+        return 0
     }
     
     func collectionView(_ collectionView: UICollectionView,
@@ -134,15 +129,12 @@ extension  MenuBarViewController: UICollectionViewDataSource {
                                                           for: indexPath) as! MenuBarCell
             cell.fill(with: data[indexPath.row])
             return cell
-            
         } else if collectionView == productsCollectionView {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ProductsCell.reuseId,
-                                                          for: indexPath) as? ProductsCell
+                                                          for: indexPath) as! ProductsCell
             let model = products[indexPath.row]
-            cell?.delagate =  self
-            cell?.fill(with: model)
-            
-            return cell ?? ProductsCell()
+            cell.fill(with: model)
+            return cell
         } else {
             return UICollectionViewCell()
         }
@@ -155,7 +147,8 @@ extension  MenuBarViewController: UICollectionViewDelegateFlowLayout {
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
         if collectionView == productsCollectionView {
             return CGSize(width: 343, height: 89)
-        } else if collectionView == menuBarCollectionView {
+        } else
+        if collectionView == menuBarCollectionView {
             switch indexPath.row {
             case 0:
                 return CGSize(width: 72, height: 32)
@@ -169,7 +162,7 @@ extension  MenuBarViewController: UICollectionViewDelegateFlowLayout {
                 return CGSize(width: view.frame.width, height: 32)
             }
         } else {
-            return CGSize()
+            return CGSize(width: 343, height: 89)
         }
     }
     
@@ -182,28 +175,28 @@ extension  MenuBarViewController: UICollectionViewDelegateFlowLayout {
             } else if collectionView == menuBarCollectionView {
                 return UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 15)
             } else {
-                return UIEdgeInsets()
+                return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
             }
         }
 }
 
-extension  MenuBarViewController: CoffeeCounterDelegate {
-    func increase() {
-        counter.counter -= 1
-        if counter.counter < 0 {
-            counter.counter = 0
-        }
-        productsCollectionView.reloadData()
-    }
-    
-    func dicrease() {
-        counter.counter += 1
-        if counter.counter > 10 {
-            counter.counter = 10
-        }
-        productsCollectionView.reloadData()
-    }
-}
+//extension  MenuBarViewController: CoffeeCounterDelegate {
+//    func increase() {
+//        counter.counter -= 1
+//        if counter.counter < 0 {
+//            counter.counter = 0
+//        }
+//        productsCollectionView.reloadData()
+//    }
+//
+//    func dicrease() {
+//        counter.counter += 1
+//        if counter.counter > 10 {
+//            counter.counter = 10
+//        }
+//        productsCollectionView.reloadData()
+//    }
+//}
 
 extension MenuBarViewController: UICollectionViewDelegate {
     
