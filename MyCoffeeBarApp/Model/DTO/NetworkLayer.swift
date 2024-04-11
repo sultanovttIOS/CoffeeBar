@@ -7,35 +7,56 @@
 
 import Foundation
 
-struct NetworkLayer {
-    private let baseURL = URL(string: "https://dummyjson.com/products")!
+class NetworkLayer {
+    private let baseURL = URL(string: "https://www.themealdb.com/api/json/v1/1/")!
     private let decoder = JSONDecoder()
     private let encoder = JSONEncoder()
     
-    func fetchProducts(completion: @escaping (
-        Result<[Product], Error>) -> Void
-    ) {
-        //MARK: создаем запрос на сервер но не отправляем его(собираем сумку)
-        let request = URLRequest(url: baseURL)
-        //MARK: сессия которая позволяет отправлять запрос "request" наружу
+    func fetchCategories(completion: @escaping (Result<[Category], Error>) -> Void) {
+        let url = baseURL.appendingPathComponent("categories.php")
+        let components = URLComponents(url: url, resolvingAgainstBaseURL: true)
+        guard let url = components?.url else { return }
+        let request = URLRequest(url: url)
+
         URLSession.shared.dataTask(with: request) { data, response, error in
-            // data --> успех, response --> по дефолту всегда приходит, error --> ошибка
             if let error {
-                //MARK: проверяем ошибку на опциональность
                 completion(.failure(error))
             }
             
             if let data {
-                //MARK: проверяем данные на опциональность
                 do {
-                    //MARK: пытаемся распарсить данные
-                    let model = try decoder.decode(Products.self, from: data)
-                    //MARK: закидываем данные в замыкание
-                    completion(.success(model.products))
+                    let categories = try self.decoder.decode(Categories.self, from: data)
+                    completion(.success(categories.categories))
+                } catch {
+                    completion(.failure(error))
+                    print(error.localizedDescription)
+                }
+            }
+        }.resume()
+    }
+    
+    func fetchProducts(
+        by categoryName: String, completion: @escaping (
+            Result<[Product], Error>) -> Void
+    ) {
+        let url = baseURL.appendingPathComponent("filter.php")
+        var components = URLComponents(url: url, resolvingAgainstBaseURL: true)
+        components?.queryItems = [.init(name: "c", value: categoryName)]
+        guard let url = components?.url else { return }
+        let request = URLRequest(url: url)
+
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            if let error {
+                completion(.failure(error))
+            }
+            if let data {
+                do {
+                    let model = try self.decoder.decode(Products.self, from: data)
+                    completion(.success(model.meals))
                 } catch {
                     completion(.failure(error))
                 }
             }
-        }.resume() // --> отправить
+        }.resume()
     }
 }

@@ -10,7 +10,9 @@ import SnapKit
 
 class BasketViewController: UIViewController {
 
-    
+    deinit {
+        print("BasketViewController deinited")
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 

@@ -12,6 +12,10 @@ class StartViewController: UIViewController {
 
     private let startView = StartView(frame: .zero)
     
+    deinit {
+        print("StartViewController deinited")
+    }
+    
     override func loadView() {
         super.loadView()
         view = startView
@@ -23,7 +27,6 @@ class StartViewController: UIViewController {
     }
 
     private func setupUI() {
-        
         startView.didLoginBtnTapped = { [weak self] in
             guard let self else { return }
             let vc = AuthorizationViewController()

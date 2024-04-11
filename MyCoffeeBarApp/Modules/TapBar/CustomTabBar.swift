@@ -57,7 +57,7 @@ extension CustomTabBar {
         shape.path = path.cgPath
         shape.lineWidth = 3
         shape.strokeColor = UIColor.white.cgColor
-        shape.fillColor = UIColor.white.cgColor
+        shape.fillColor = UIColor.systemGray6.cgColor
         layer.insertSublayer(shape, at: 0)
     }
     

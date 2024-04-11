@@ -19,7 +19,7 @@
 		CEE71CB52BBC723F00AD99E4 /* MenuBarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE71CB42BBC723F00AD99E4 /* MenuBarCell.swift */; };
 		CEE71CB72BBD6BB200AD99E4 /* ProductsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE71CB62BBD6BB200AD99E4 /* ProductsCell.swift */; };
 		CEE71CBF2BBE852000AD99E4 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE71CBE2BBE852000AD99E4 /* DataManager.swift */; };
-		CEE71CC22BBEC13700AD99E4 /* ProductInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE71CC12BBEC13700AD99E4 /* ProductInfoViewController.swift */; };
+		CEE71CC22BBEC13700AD99E4 /* ProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE71CC12BBEC13700AD99E4 /* ProductViewController.swift */; };
 		CEE71CC52BBEC2E500AD99E4 /* TapBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE71CC42BBEC2E500AD99E4 /* TapBarViewController.swift */; };
 		CEE71CC82BBEC48E00AD99E4 /* BasketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE71CC72BBEC48E00AD99E4 /* BasketViewController.swift */; };
 		CEE71CCA2BBFD7AB00AD99E4 /* QrButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE71CC92BBFD7AB00AD99E4 /* QrButton.swift */; };
@@ -28,6 +28,12 @@
 		CEE71CD42BC007B900AD99E4 /*  MenuBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE71CB22BBC4F3C00AD99E4 /*  MenuBarViewController.swift */; };
 		CEE71CDC2BC2932500AD99E4 /* NetworkLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE71CDB2BC2932500AD99E4 /* NetworkLayer.swift */; };
 		CEE71CDE2BC2937F00AD99E4 /* Products.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE71CDD2BC2937F00AD99E4 /* Products.swift */; };
+		CEE71CE02BC3EACE00AD99E4 /* Categories.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE71CDF2BC3EACE00AD99E4 /* Categories.swift */; };
+		CEE71CE22BC5042800AD99E4 /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE71CE12BC5042800AD99E4 /* ImageCell.swift */; };
+		CEE71CE52BC5060600AD99E4 /* DescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE71CE42BC5060600AD99E4 /* DescriptionView.swift */; };
+		CEE71CE82BC5086D00AD99E4 /* DescriptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE71CE72BC5086D00AD99E4 /* DescriptionCell.swift */; };
+		CEE71CEC2BC56BDD00AD99E4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CEE71CEB2BC56BDD00AD99E4 /* GoogleService-Info.plist */; };
+		CEE71CEF2BC80D8700AD99E4 /* ImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE71CEE2BC80D8700AD99E4 /* ImageDownloader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,7 +53,7 @@
 		CEE71CB42BBC723F00AD99E4 /* MenuBarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarCell.swift; sourceTree = "<group>"; };
 		CEE71CB62BBD6BB200AD99E4 /* ProductsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsCell.swift; sourceTree = "<group>"; };
 		CEE71CBE2BBE852000AD99E4 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
-		CEE71CC12BBEC13700AD99E4 /* ProductInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductInfoViewController.swift; sourceTree = "<group>"; };
+		CEE71CC12BBEC13700AD99E4 /* ProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductViewController.swift; sourceTree = "<group>"; };
 		CEE71CC42BBEC2E500AD99E4 /* TapBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapBarViewController.swift; sourceTree = "<group>"; };
 		CEE71CC72BBEC48E00AD99E4 /* BasketViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketViewController.swift; sourceTree = "<group>"; };
 		CEE71CC92BBFD7AB00AD99E4 /* QrButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QrButton.swift; sourceTree = "<group>"; };
@@ -55,6 +61,12 @@
 		CEE71CCE2BBFEC3500AD99E4 /* JSONParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONParser.swift; sourceTree = "<group>"; };
 		CEE71CDB2BC2932500AD99E4 /* NetworkLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkLayer.swift; sourceTree = "<group>"; };
 		CEE71CDD2BC2937F00AD99E4 /* Products.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Products.swift; sourceTree = "<group>"; };
+		CEE71CDF2BC3EACE00AD99E4 /* Categories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Categories.swift; sourceTree = "<group>"; };
+		CEE71CE12BC5042800AD99E4 /* ImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCell.swift; sourceTree = "<group>"; };
+		CEE71CE42BC5060600AD99E4 /* DescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionView.swift; sourceTree = "<group>"; };
+		CEE71CE72BC5086D00AD99E4 /* DescriptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionCell.swift; sourceTree = "<group>"; };
+		CEE71CEB2BC56BDD00AD99E4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		CEE71CEE2BC80D8700AD99E4 /* ImageDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloader.swift; sourceTree = "<group>"; };
 		EFB8A0DBAA34B3A10DC847FB /* Pods_MyCoffeeBarApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyCoffeeBarApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -108,6 +120,7 @@
 		CEE71C912BBC468000AD99E4 /* MyCoffeeBarApp */ = {
 			isa = PBXGroup;
 			children = (
+				CEE71CED2BC80D7B00AD99E4 /* Helper */,
 				CEE71CD62BC26A4E00AD99E4 /* Model */,
 				CEE71CA82BBC4A6E00AD99E4 /* Modules */,
 				CEE71CA72BBC496500AD99E4 /* Resourse */,
@@ -129,6 +142,7 @@
 		CEE71CA72BBC496500AD99E4 /* Resourse */ = {
 			isa = PBXGroup;
 			children = (
+				CEE71CEB2BC56BDD00AD99E4 /* GoogleService-Info.plist */,
 				CEE71C9D2BBC468200AD99E4 /* LaunchScreen.storyboard */,
 				CEE71C9B2BBC468200AD99E4 /* Assets.xcassets */,
 			);
@@ -180,7 +194,9 @@
 		CEE71CC02BBEC0D200AD99E4 /* Product */ = {
 			isa = PBXGroup;
 			children = (
-				CEE71CC12BBEC13700AD99E4 /* ProductInfoViewController.swift */,
+				CEE71CC12BBEC13700AD99E4 /* ProductViewController.swift */,
+				CEE71CE12BC5042800AD99E4 /* ImageCell.swift */,
+				CEE71CE62BC5084500AD99E4 /* DescriptionView */,
 			);
 			path = Product;
 			sourceTree = "<group>";
@@ -209,6 +225,7 @@
 				CEE71CCE2BBFEC3500AD99E4 /* JSONParser.swift */,
 				CEE71CDB2BC2932500AD99E4 /* NetworkLayer.swift */,
 				CEE71CDD2BC2937F00AD99E4 /* Products.swift */,
+				CEE71CDF2BC3EACE00AD99E4 /* Categories.swift */,
 			);
 			path = DTO;
 			sourceTree = "<group>";
@@ -219,6 +236,23 @@
 				CEE71CCD2BBFEC1E00AD99E4 /* DTO */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		CEE71CE62BC5084500AD99E4 /* DescriptionView */ = {
+			isa = PBXGroup;
+			children = (
+				CEE71CE42BC5060600AD99E4 /* DescriptionView.swift */,
+				CEE71CE72BC5086D00AD99E4 /* DescriptionCell.swift */,
+			);
+			path = DescriptionView;
+			sourceTree = "<group>";
+		};
+		CEE71CED2BC80D7B00AD99E4 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				CEE71CEE2BC80D8700AD99E4 /* ImageDownloader.swift */,
+			);
+			path = Helper;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -283,6 +317,7 @@
 			files = (
 				CEE71C9C2BBC468200AD99E4 /* Assets.xcassets in Resources */,
 				CEE71C9F2BBC468200AD99E4 /* Base in Resources */,
+				CEE71CEC2BC56BDD00AD99E4 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -341,17 +376,22 @@
 				CEE71CCF2BBFEC3500AD99E4 /* JSONParser.swift in Sources */,
 				CEE71CD42BC007B900AD99E4 /*  MenuBarViewController.swift in Sources */,
 				CEE71CB12BBC4E9400AD99E4 /* AuthorizationViewController.swift in Sources */,
+				CEE71CEF2BC80D8700AD99E4 /* ImageDownloader.swift in Sources */,
 				CEE71CC52BBEC2E500AD99E4 /* TapBarViewController.swift in Sources */,
 				CEE71CDC2BC2932500AD99E4 /* NetworkLayer.swift in Sources */,
 				CEE71C972BBC468000AD99E4 /* StartViewController.swift in Sources */,
+				CEE71CE52BC5060600AD99E4 /* DescriptionView.swift in Sources */,
+				CEE71CE02BC3EACE00AD99E4 /* Categories.swift in Sources */,
 				CEE71C932BBC468000AD99E4 /* AppDelegate.swift in Sources */,
 				CEE71C952BBC468000AD99E4 /* SceneDelegate.swift in Sources */,
 				CEE71CB72BBD6BB200AD99E4 /* ProductsCell.swift in Sources */,
 				CEE71CAF2BBC4CA500AD99E4 /* AuthorizationView.swift in Sources */,
-				CEE71CC22BBEC13700AD99E4 /* ProductInfoViewController.swift in Sources */,
+				CEE71CC22BBEC13700AD99E4 /* ProductViewController.swift in Sources */,
 				CEE71CAD2BBC4C6500AD99E4 /* StartView.swift in Sources */,
 				CEE71CBF2BBE852000AD99E4 /* DataManager.swift in Sources */,
+				CEE71CE22BC5042800AD99E4 /* ImageCell.swift in Sources */,
 				CEE71CCA2BBFD7AB00AD99E4 /* QrButton.swift in Sources */,
+				CEE71CE82BC5086D00AD99E4 /* DescriptionCell.swift in Sources */,
 				CEE71CC82BBEC48E00AD99E4 /* BasketViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

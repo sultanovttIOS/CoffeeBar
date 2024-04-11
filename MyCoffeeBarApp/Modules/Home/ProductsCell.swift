@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-protocol CoffeeCounterDelegate: AnyObject {
+protocol ProductCellDelegate: AnyObject {
     func increase()
     func dicrease()
 }
@@ -93,7 +93,7 @@ class ProductsCell: UICollectionViewCell {
         return view
     }()
     
-    weak var delagate: CoffeeCounterDelegate?
+    weak var delagate: ProductCellDelegate?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -134,12 +134,12 @@ class ProductsCell: UICollectionViewCell {
     }
     
     @objc
-    func plusBtnTapped() {
+    private func plusBtnTapped() {
         delagate?.dicrease()
     }
     
-    @objc 
-    func minusBtnTapped() {
+    @objc
+    private func minusBtnTapped() {
         delagate?.increase()
     }
     
@@ -148,9 +148,14 @@ class ProductsCell: UICollectionViewCell {
     }
     
     func fill(with model: Product) {
-        cellImage.image = UIImage(named: model.thumbnail)
-        titleLabel.text = model.title
-        descriptionLabel.text = model.description
-        priceLabel.text = String(model.price)
+        titleLabel.text = model.strMeal
+        priceLabel.text = String(model.idMeal)
+        ImageDownloader.shared.loadImage(with: model.strMealThumb) { result in
+            if case .success(let image) = result {
+                DispatchQueue.main.async {
+                    self.cellImage.image = UIImage(named: model.strMealThumb)
+                }
+            }
+        }
     }
 }

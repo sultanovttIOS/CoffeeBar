@@ -8,12 +8,27 @@
 import Foundation
 
 struct Products: Codable {
-    let products: [Product]
+    let meals: [Product]
+
+//    enum CodingKeys: String, CodingKey {
+//        case product = "meals"
+//    }
+//    
+//    static func ==(lhs: Products, rhs: Products) -> Bool {
+//        return lhs.product == rhs.product
+//    }
 }
 
 struct Product: Codable {
-    let title: String
-    let description: String
-    let price: Int
-    let thumbnail: String
+    let strMeal: String
+    let strMealThumb: String
+    let idMeal: String
+    
+//    enum CodingKeys: String, CodingKey {
+//        case title = "strMeal"
+//    }
+//    
+//    static func ==(lhs: Product, rhs: Product) -> Bool {
+//        return lhs.title == rhs.title
+//    }
 }

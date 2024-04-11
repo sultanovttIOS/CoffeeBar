@@ -22,7 +22,7 @@ final class TapBarViewController: UITabBarController {
         let homeVC =  MenuBarViewController()
         homeVC.tabBarItem.image = UIImage(systemName: "house")
         
-        let basketVC = BasketViewController()
+        let basketVC = ProductViewController()
         basketVC.tabBarItem.image = UIImage(systemName: "basket")
         
         let locationVC = StartViewController()

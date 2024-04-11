@@ -8,10 +8,6 @@
 import Foundation
 import SnapKit
 
-struct CoffeeBar {
-        let title: String
-}
-
 struct CounterModel {
     var counter: Int
 }

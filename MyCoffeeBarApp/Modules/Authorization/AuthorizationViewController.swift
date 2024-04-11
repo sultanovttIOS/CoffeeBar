@@ -12,7 +12,7 @@ class AuthorizationViewController: UIViewController {
     private let authorizationView = AuthorizationView(frame: .zero)
     
     deinit {
-        print("avc is deinited")
+        print("AuthorizationViewController is deinited")
     }
     
     override func loadView() {

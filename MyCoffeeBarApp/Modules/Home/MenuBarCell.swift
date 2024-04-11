@@ -11,7 +11,12 @@ import SnapKit
 class MenuBarCell: UICollectionViewCell {
     static let reuseId = "coffeeBar_cell"
     
-    private let titleLabel: UILabel = {
+      private lazy var labelView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .clear
+        return view
+    }()
+    private lazy var titleLabel: UILabel = {
         let view = UILabel()
         view.font = .systemFont(ofSize: 16)
         view.textAlignment = .center
@@ -31,14 +36,20 @@ class MenuBarCell: UICollectionViewCell {
     }
     
     private func setupConstraints() {
-        contentView.addSubview(titleLabel)
+        contentView.addSubview(labelView)
+        labelView.snp.makeConstraints { make in
+            make.top.equalToSuperview()
+            make.bottom.equalToSuperview()
+            make.width.equalToSuperview()
+        }
+        labelView.addSubview(titleLabel)
         titleLabel.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.centerY.equalToSuperview()
         }
     }
     
-    func fill(with: CoffeeBar) {
-        titleLabel.text = with.title
+    func fill(with model: Category) {
+        titleLabel.text = model.strCategory
     }
 }

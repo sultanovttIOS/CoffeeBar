@@ -6,4 +6,5 @@ target 'MyCoffeeBarApp' do
 
   # Pods for MyCoffeeBarApp
  pod 'SnapKit'
+ pod 'FirebaseAuth'
 end
