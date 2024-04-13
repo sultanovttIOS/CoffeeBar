@@ -39,7 +39,8 @@ class AuthorizationView: UIView {
         return view
     }()
     
-    private lazy var numberTextField: UITextField = {
+    //private
+    lazy var phoneNumberTf: UITextField = {
         let view = UITextField()
         view.placeholder = "555 555 555"
         view.leftViewMode = .always
@@ -68,6 +69,8 @@ class AuthorizationView: UIView {
     
     var didNumberTFCheck: (() -> Void)?
     
+    weak var delegate: AuthorizationViewControllerDelegate?
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = .systemBackground
@@ -82,10 +85,10 @@ class AuthorizationView: UIView {
         addSubview(titleImage)
         addSubview(subTitleLabel)
         addSubview(loginButton)
-        addSubview(numberTextField)
+        addSubview(phoneNumberTf)
         
         titleImage.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(155)
+            make.top.equalToSuperview()
             make.width.equalTo(170)
             make.height.equalTo(80)
             make.centerX.equalToSuperview()
@@ -96,14 +99,14 @@ class AuthorizationView: UIView {
             make.height.equalTo(34)
             make.left.equalToSuperview().offset(16)
         }
-        numberTextField.snp.makeConstraints { make in
+        phoneNumberTf.snp.makeConstraints { make in
             make.top.equalTo(subTitleLabel.snp.bottom).offset(32)
             make.width.equalTo(343)
             make.height.equalTo(56)
             make.centerX.equalToSuperview()
         }
         loginButton.snp.makeConstraints { make in
-            make.top.equalTo(numberTextField.snp.bottom).offset(20)
+            make.top.equalTo(phoneNumberTf.snp.bottom).offset(20)
             make.width.equalTo(343)
             make.height.equalTo(56)
             make.centerX.equalToSuperview()
@@ -118,5 +121,6 @@ class AuthorizationView: UIView {
     @objc
     private func numberTFCheck() {
         didNumberTFCheck?()
+  
     }
 }

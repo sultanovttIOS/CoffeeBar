@@ -20,6 +20,7 @@ class ProductsCell: UICollectionViewCell {
         let view = UIImageView()
         view.contentMode = .scaleAspectFit
         view.layer.cornerRadius = 12
+        view.clipsToBounds = true
         return view
     }()
     
@@ -37,7 +38,6 @@ class ProductsCell: UICollectionViewCell {
         view.font = .systemFont(ofSize: 12)
         view.textAlignment = .left
         view.textColor = .darkText
-        view.text = "111"
         return view
     }()
     
@@ -46,7 +46,6 @@ class ProductsCell: UICollectionViewCell {
         view.font = .boldSystemFont(ofSize: 14)
         view.textAlignment = .left
         view.textColor = .orange
-        view.text = "111"
         return view
     }()
     
@@ -133,29 +132,54 @@ class ProductsCell: UICollectionViewCell {
         countStack.addArrangedSubview(plusButton)
     }
     
-    @objc
-    private func plusBtnTapped() {
-        delagate?.dicrease()
-    }
+//    @objc
+//    private func plusBtnTapped() {
+//        delagate?.dicrease()
+//    }
+//    
+//    @objc
+//    private func minusBtnTapped() {
+//        delagate?.increase()
+//    }
+//    
+//    func fillCounter(with model: CounterModel) {
+//        countLabel.text = String(model.counter)
+//    }
     
-    @objc
-    private func minusBtnTapped() {
-        delagate?.increase()
-    }
-    
-    func fillCounter(with model: CounterModel) {
-        countLabel.text = String(model.counter)
-    }
+//    func loadImage(with urlString: String) {
+//        guard let url = URL(string: urlString) else { return }
+//        
+//        URLSession.shared.dataTask(with: url) { [ weak self ] data, _, error in
+//            guard let data = data, error == nil, let image = UIImage(data: data) else { return }
+//            DispatchQueue.main.async {
+//                self?.cellImage.image = image
+//            }
+//        }.resume()
+//    }
     
     func fill(with model: Product) {
         titleLabel.text = model.strMeal
         priceLabel.text = String(model.idMeal)
         ImageDownloader.shared.loadImage(with: model.strMealThumb) { result in
             if case .success(let image) = result {
-                DispatchQueue.main.async {
-                    self.cellImage.image = UIImage(named: model.strMealThumb)
-                }
+                self.cellImage.image = image
             }
         }
+       // loadImage(with: model.strMealThumb)
     }
+    
+    var counter: Int = 0 {
+            didSet {
+                countLabel.text = "\(counter)"
+            }
+        }
+
+        @objc func plusBtnTapped() {
+            counter += 1
+        }
+
+        @objc func minusBtnTapped() {
+            counter = max(0,
+                          counter - 1)
+        }
 }

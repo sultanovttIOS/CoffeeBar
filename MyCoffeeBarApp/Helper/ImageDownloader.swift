@@ -16,7 +16,9 @@ final class ImageDownloader {
         guard let url = URL(string: urlString) else { return }
         
         URLSession.shared.dataTask(with: url) { data, _, error in
-            guard let data = data, error == nil, let image = UIImage(data: data) else { return }
+            guard let data = data,
+                  error == nil,
+                    let image = UIImage(data: data) else { return }
             completion(.success(image))
         }.resume()
     }
