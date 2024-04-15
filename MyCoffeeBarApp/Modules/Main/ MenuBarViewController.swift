@@ -9,7 +9,6 @@ import UIKit
 import SnapKit
 
 class  MenuBarViewController: UIViewController {
-    
     private lazy var searchBar: UISearchBar = {
         let view = UISearchBar()
         view.placeholder = "Search"
@@ -32,7 +31,6 @@ class  MenuBarViewController: UIViewController {
     
     private lazy var titleLabel: UILabel = {
         let view = UILabel()
-        view.text = "Кофе"
         view.font = .systemFont(ofSize: 24)
         view.textAlignment = .left
         view.textColor = .label
@@ -50,12 +48,14 @@ class  MenuBarViewController: UIViewController {
         view.register(ProductsCell.self,
                       forCellWithReuseIdentifier: ProductsCell.reuseId)
         view.showsVerticalScrollIndicator = false
+        view.isUserInteractionEnabled = true
         return view
     }()
     
     private var categories: [Category] = []
     private var counter = CounterModel(counter: 0)
     private var products: [Product] = []
+    private var updatedProducts: [Product] = []
     private let networkLayer = NetworkLayer()
     private var selectedCategory: Category? {
         didSet {
@@ -74,6 +74,7 @@ class  MenuBarViewController: UIViewController {
         setupConstraints()
         setupNavigationItem()
         fetchCategories()
+        updatedProducts = products
     }
     
     private func setupNavigationItem() {
@@ -97,7 +98,6 @@ class  MenuBarViewController: UIViewController {
         titleLabel.snp.makeConstraints { make in
             make.top.equalTo(menuBarCollectionView.snp.bottom).offset(24)
             make.height.equalTo(24)
-            make.width.equalTo(60)
             make.left.equalToSuperview().offset(16)
         }
         view.addSubview(productsCollectionView)
@@ -129,6 +129,7 @@ class  MenuBarViewController: UIViewController {
             case .success(let products):
                 DispatchQueue.main.async {
                     self.products = products
+                    self.updatedProducts = products
                     self.productsCollectionView.reloadData()
                 }
             case .failure(let error):
@@ -144,7 +145,7 @@ extension  MenuBarViewController: UICollectionViewDataSource {
         if collectionView == menuBarCollectionView {
             return categories.count
         } else if collectionView == productsCollectionView {
-            return products.count
+            return updatedProducts.count
         }
         return 0
     }
@@ -161,6 +162,7 @@ extension  MenuBarViewController: UICollectionViewDataSource {
         } else if collectionView == productsCollectionView {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ProductsCell.reuseId,
                                                           for: indexPath) as! ProductsCell
+            //cell.delagate = self
             let model = products[indexPath.row]
             cell.fill(with: model)
             return cell
@@ -201,39 +203,43 @@ extension  MenuBarViewController: UICollectionViewDelegateFlowLayout {
         }
 }
 
-extension  MenuBarViewController: ProductCellDelegate {
-    func increase() {
-        counter.counter -= 1
-        if counter.counter < 0 {
-            counter.counter = 0
-        }
-        productsCollectionView.reloadData()
-    }
-
-    func dicrease() {
-        counter.counter += 1
-        if counter.counter > 10 {
-            counter.counter = 10
-        }
-        productsCollectionView.reloadData()
-    }
-}
+//extension  MenuBarViewController: ProductCellDelegate {
+//    func increase() {
+//        counter.counter -= 1
+//        if counter.counter < 0 {
+//            counter.counter = 0
+//        }
+//        productsCollectionView.reloadData()
+//    }
+//    
+//    func dicrease() {
+//        counter.counter += 1
+//        if counter.counter > 10 {
+//            counter.counter = 10
+//        }
+//        productsCollectionView.reloadData()
+//    }
+//}
 
 extension MenuBarViewController: UICollectionViewDelegate {
     
     //MARK: didSelectItemAt
     func collectionView(_ collectionView: UICollectionView,
                         didSelectItemAt indexPath: IndexPath) {
-        guard collectionView == menuBarCollectionView else { return }
-               selectedCategoryIndex = indexPath.item
-               menuBarCollectionView.reloadData()
-               let category = categories[indexPath.item]
-               selectedCategory = category
-        
-        guard collectionView == productsCollectionView else { return }
-        if indexPath.item <= products.count {
-            let vc = ProductViewController()
-            
+        if collectionView == menuBarCollectionView {
+            titleLabel.text = categories[indexPath.row].strCategory
+            selectedCategoryIndex = indexPath.item
+            menuBarCollectionView.reloadData()
+            let category = categories[indexPath.item]
+            selectedCategory = category
+        }
+        if collectionView == productsCollectionView {
+            if indexPath.row < products.count {
+                let selectedProduct = products[indexPath.row]
+                let vc = ProductViewController()
+                vc.idMeal = selectedProduct.idMeal
+                navigationController?.pushViewController(vc, animated: true)
+            }
         }
     }
     

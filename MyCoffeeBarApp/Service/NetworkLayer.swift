@@ -12,17 +12,18 @@ class NetworkLayer {
     private let decoder = JSONDecoder()
     private let encoder = JSONEncoder()
     
-    func fetchCategories(completion: @escaping (Result<[Category], Error>) -> Void) {
+    func fetchCategories(completion: @escaping (
+        Result<[Category], Error>) -> Void
+    ) {
         let url = baseURL.appendingPathComponent("categories.php")
         let components = URLComponents(url: url, resolvingAgainstBaseURL: true)
         guard let url = components?.url else { return }
         let request = URLRequest(url: url)
-
+        
         URLSession.shared.dataTask(with: request) { data, response, error in
             if let error {
                 completion(.failure(error))
             }
-            
             if let data {
                 do {
                     let categories = try self.decoder.decode(Categories.self, from: data)
@@ -44,7 +45,7 @@ class NetworkLayer {
         components?.queryItems = [.init(name: "c", value: categoryName)]
         guard let url = components?.url else { return }
         let request = URLRequest(url: url)
-
+        
         URLSession.shared.dataTask(with: request) { data, response, error in
             if let error {
                 completion(.failure(error))
@@ -53,6 +54,33 @@ class NetworkLayer {
                 do {
                     let model = try self.decoder.decode(Products.self, from: data)
                     completion(.success(model.meals))
+                } catch {
+                    completion(.failure(error))
+                }
+            }
+        }.resume()
+    }
+    
+    func fetchIdMealDetails(
+        by idMeal: String, completion: @escaping (
+            Result<Meal, Error>) -> Void
+    ) {
+        let url = baseURL.appendingPathComponent("lookup.php")
+        var components = URLComponents(url: url, resolvingAgainstBaseURL: true)
+        components?.queryItems = [.init(name: "i", value: idMeal)]
+        guard let url = components?.url else { return }
+        let request = URLRequest(url: url)
+        
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            if let error {
+                completion(.failure(error))
+            }
+            if let data {
+                do {
+                    let model = try self.decoder.decode(Meals.self, from: data)
+                    if let firstMeal = model.meals.first {
+                        completion(.success(firstMeal))
+                    }
                 } catch {
                     completion(.failure(error))
                 }

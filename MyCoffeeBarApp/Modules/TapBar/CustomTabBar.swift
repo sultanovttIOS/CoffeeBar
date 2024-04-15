@@ -9,8 +9,7 @@ import UIKit
 import SnapKit
 
 final class CustomTabBar: UITabBar {
-
-   private let qrButton = QrButton()
+    private let qrButton = QrButton()
     
     override func draw(_ rect: CGRect) {
         configureShape()
@@ -40,16 +39,12 @@ final class CustomTabBar: UITabBar {
             qrButton.widthAnchor.constraint(equalTo: heightAnchor, multiplier: 0.6)
         ])
     }
-    
     //MARK: Hit test
-    
     override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
         qrButton.frame.contains(point) ? qrButton : super.hitTest(point, with: event)
     }
 }
-
 //MARK: Draw Shape
-
 extension CustomTabBar {
     private func configureShape() {
         let path = getBezierPath()
@@ -75,6 +70,6 @@ extension CustomTabBar {
         path.addLine(to: CGPoint(x: frame.width, y: 0))
         path.addLine(to: CGPoint(x: frame.width, y: frame.height))
         path.addLine(to: CGPoint(x: 0, y: frame.height))
-       return path
+        return path
     }
 }

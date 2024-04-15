@@ -39,7 +39,6 @@ class AuthorizationView: UIView {
         return view
     }()
     
-    //private
     lazy var phoneNumberTf: UITextField = {
         let view = UITextField()
         view.placeholder = "555 555 555"
@@ -60,15 +59,13 @@ class AuthorizationView: UIView {
         view.layer.cornerRadius = 25
         view.addTarget(
             self,
-            action: #selector(numberTFCheck),
+            action: #selector(loginBtnTapped),
             for: .valueChanged)
         return view
     }()
     
     var didLoginBtnTapped: (() -> Void)?
-    
-    var didNumberTFCheck: (() -> Void)?
-    
+        
     weak var delegate: AuthorizationViewControllerDelegate?
     
     override init(frame: CGRect) {
@@ -88,7 +85,7 @@ class AuthorizationView: UIView {
         addSubview(phoneNumberTf)
         
         titleImage.snp.makeConstraints { make in
-            make.top.equalToSuperview()
+            make.top.equalToSuperview().offset(155)
             make.width.equalTo(170)
             make.height.equalTo(80)
             make.centerX.equalToSuperview()
@@ -116,11 +113,5 @@ class AuthorizationView: UIView {
     @objc 
     private func loginBtnTapped() {
         didLoginBtnTapped?()
-    }
-    
-    @objc
-    private func numberTFCheck() {
-        didNumberTFCheck?()
-  
     }
 }
