@@ -37,29 +37,6 @@ class AuthorizationViewController: UIViewController {
             make.edges.equalToSuperview()
         }
     }
-    //MARK: Доработать
-//    private func signIn() {
-//        guard let text = authorizationView.phoneNumberTf.text else { return }
-//        if text == "5555" {
-//            AuthService.shared.signIn { result in
-//                switch result {
-//                case .success:
-//                    self.showTabBar()
-//                case .failure(let error):
-//                    print(error.localizedDescription)
-//                }
-//            }
-//            //showTabBar()
-//        }
-//        //        authService.signIn(with: text) { result in
-//        //            switch result {
-//        //            case .success(let success):
-//        //                print(success)
-//        //            case .failure(let error):
-//        //                print(error.localizedDescription)
-//        //            }
-//        //        }
-//    }
     
     private func showTabBar() {
         let tabBarViewController = TabBarViewController()
