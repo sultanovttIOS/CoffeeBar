@@ -9,37 +9,28 @@ import UIKit
 import FirebaseAuth
 
 protocol AuthorizationViewControllerDelegate: AnyObject {
-    func checkTF(with number: String)
+    func didLoginBtnTapped(with number: String)
 }
 
 class AuthorizationViewController: UIViewController {
-    
-    private let authorizationView = AuthorizationView(frame: .zero)
-    
+        
     deinit {
         print("AuthorizationViewController is deinited")
     }
-    
-    private let authService = AuthService()
-    
+        
+    private let authorizationView = AuthorizationView()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        sendSms()
+        authorizationView.delegate = self
     }
     
     private func setupUI() {
         view.backgroundColor = .systemBackground
         setupConstraints()
-        loginBtnTapped()
     }
-    
-    private func loginBtnTapped() {
-        authorizationView.didLoginBtnTapped = { [weak self] in
-            guard let self else { return }
-            signIn()
-        }
-    }
+
     private func setupConstraints() {
         view.addSubview(authorizationView)
         authorizationView.snp.makeConstraints { make in
@@ -47,49 +38,53 @@ class AuthorizationViewController: UIViewController {
         }
     }
     //MARK: Доработать
-    private func sendSms() {
-//        authService.sendSms(with: "+996990203074") { result in
-//            if case.success = result {
-//                print("success")
+//    private func signIn() {
+//        guard let text = authorizationView.phoneNumberTf.text else { return }
+//        if text == "5555" {
+//            AuthService.shared.signIn { result in
+//                switch result {
+//                case .success:
+//                    self.showTabBar()
+//                case .failure(let error):
+//                    print(error.localizedDescription)
+//                }
 //            }
+//            //showTabBar()
 //        }
-    }
-    //MARK: Доработать
-    private func signIn() {
-        guard let text = authorizationView.phoneNumberTf.text else { return }
-        //guard let text = authorizationView.didNumberTFCheck else { return }
-        if text == "5555" {
-            AuthService.shared.signIn { result in
-                switch result {
-                case .success:
-                    self.showTabBar()
-                case .failure(let error):
-                    print(error.localizedDescription)
-                }
-            }
-            //showTabBar()
-        }
-        //        authService.signIn(with: text) { result in
-        //            switch result {
-        //            case .success(let success):
-        //                print(success)
-        //            case .failure(let error):
-        //                print(error.localizedDescription)
-        //            }
-        //        }
-    }
+//        //        authService.signIn(with: text) { result in
+//        //            switch result {
+//        //            case .success(let success):
+//        //                print(success)
+//        //            case .failure(let error):
+//        //                print(error.localizedDescription)
+//        //            }
+//        //        }
+//    }
     
     private func showTabBar() {
-        let tabBarViewController = TapBarViewController()
+        let tabBarViewController = TabBarViewController()
         let navVc = UINavigationController(rootViewController: tabBarViewController)
         navVc.modalPresentationStyle = .fullScreen
         navigationController?.present(navVc, animated: false)
     }
+    
+    private func loginBtnTapped() {
+        let vc = SMSViewController()
+        navigationController?.pushViewController(vc, animated: true)
+    }
 }
-//MARK: Доработать
 
 extension AuthorizationViewController: AuthorizationViewControllerDelegate {
-    func checkTF(with number: String) {
-    
+    func didLoginBtnTapped(with number: String) {
+        AuthService.shared.sendSms(with: number) { result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(()):
+                    self.loginBtnTapped()
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
+            }
+        }
     }
 }

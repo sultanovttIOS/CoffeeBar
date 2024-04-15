@@ -20,7 +20,7 @@
 		CEE71CB72BBD6BB200AD99E4 /* ProductsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE71CB62BBD6BB200AD99E4 /* ProductsCell.swift */; };
 		CEE71CBF2BBE852000AD99E4 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE71CBE2BBE852000AD99E4 /* DataManager.swift */; };
 		CEE71CC22BBEC13700AD99E4 /* ProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE71CC12BBEC13700AD99E4 /* ProductViewController.swift */; };
-		CEE71CC52BBEC2E500AD99E4 /* TapBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE71CC42BBEC2E500AD99E4 /* TapBarViewController.swift */; };
+		CEE71CC52BBEC2E500AD99E4 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE71CC42BBEC2E500AD99E4 /* TabBarViewController.swift */; };
 		CEE71CC82BBEC48E00AD99E4 /* BasketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE71CC72BBEC48E00AD99E4 /* BasketViewController.swift */; };
 		CEE71CCA2BBFD7AB00AD99E4 /* QrButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE71CC92BBFD7AB00AD99E4 /* QrButton.swift */; };
 		CEE71CCC2BBFD93600AD99E4 /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE71CCB2BBFD93600AD99E4 /* CustomTabBar.swift */; };
@@ -55,7 +55,7 @@
 		CEE71CB62BBD6BB200AD99E4 /* ProductsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsCell.swift; sourceTree = "<group>"; };
 		CEE71CBE2BBE852000AD99E4 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		CEE71CC12BBEC13700AD99E4 /* ProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductViewController.swift; sourceTree = "<group>"; };
-		CEE71CC42BBEC2E500AD99E4 /* TapBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapBarViewController.swift; sourceTree = "<group>"; };
+		CEE71CC42BBEC2E500AD99E4 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		CEE71CC72BBEC48E00AD99E4 /* BasketViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketViewController.swift; sourceTree = "<group>"; };
 		CEE71CC92BBFD7AB00AD99E4 /* QrButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QrButton.swift; sourceTree = "<group>"; };
 		CEE71CCB2BBFD93600AD99E4 /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
@@ -208,7 +208,7 @@
 		CEE71CC32BBEC2B700AD99E4 /* TapBar */ = {
 			isa = PBXGroup;
 			children = (
-				CEE71CC42BBEC2E500AD99E4 /* TapBarViewController.swift */,
+				CEE71CC42BBEC2E500AD99E4 /* TabBarViewController.swift */,
 				CEE71CC92BBFD7AB00AD99E4 /* QrButton.swift */,
 				CEE71CCB2BBFD93600AD99E4 /* CustomTabBar.swift */,
 			);
@@ -395,7 +395,7 @@
 				CEE71CD42BC007B900AD99E4 /*  MenuBarViewController.swift in Sources */,
 				CEE71CB12BBC4E9400AD99E4 /* AuthorizationViewController.swift in Sources */,
 				CEE71CEF2BC80D8700AD99E4 /* ImageDownloader.swift in Sources */,
-				CEE71CC52BBEC2E500AD99E4 /* TapBarViewController.swift in Sources */,
+				CEE71CC52BBEC2E500AD99E4 /* TabBarViewController.swift in Sources */,
 				CEE71CDC2BC2932500AD99E4 /* NetworkLayer.swift in Sources */,
 				CEE71C972BBC468000AD99E4 /* StartViewController.swift in Sources */,
 				CEE71CF72BC94DC900AD99E4 /* SMSViewController.swift in Sources */,

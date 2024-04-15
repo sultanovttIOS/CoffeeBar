@@ -21,7 +21,8 @@ class SplashViewController: UIViewController {
         let currentTime = Date()
         if let sessionDate = 
             UserDefaults.standard.object(
-            forKey: "session") as? Date, 
+            forKey: "session"
+            ) as? Date, 
             sessionDate >= currentTime {
             showTabBar()
         } else {
@@ -37,7 +38,7 @@ class SplashViewController: UIViewController {
     }
     
     private func showTabBar() {
-        let tabBarViewController = TapBarViewController()
+        let tabBarViewController = TabBarViewController()
         let navVc = UINavigationController(rootViewController: tabBarViewController)
         navVc.modalPresentationStyle = .fullScreen
         navigationController?.present(navVc, animated: false)
