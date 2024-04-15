@@ -8,10 +8,10 @@
 import UIKit
 import SnapKit
 
-protocol ProductCellDelegate: AnyObject {
-    func increase()
-    func dicrease()
-}
+//protocol ProductCellDelegate: AnyObject {
+//    func increase()
+//    func dicrease()
+//}
 
 class ProductsCell: UICollectionViewCell {
     static let reuseId = "coffee_cell"
@@ -92,7 +92,12 @@ class ProductsCell: UICollectionViewCell {
         return view
     }()
     
-    weak var delagate: ProductCellDelegate?
+//    weak var delagate: ProductCellDelegate?
+    var counter: Int = 0 {
+        didSet {
+            countLabel.text = "\(counter)"
+        }
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -104,12 +109,12 @@ class ProductsCell: UICollectionViewCell {
     }
     
     private func setupConstraints() {
-        addSubview(cellImage)
+        contentView.addSubview(cellImage)
         cellImage.snp.makeConstraints { make in
             make.height.width.equalTo(89)
             make.leading.equalToSuperview()
         }
-        addSubview(stackLabel)
+        contentView.addSubview(stackLabel)
         stackLabel.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(8)
             make.leading.equalTo(cellImage.snp.trailing).offset(16)
@@ -120,7 +125,7 @@ class ProductsCell: UICollectionViewCell {
         stackLabel.addArrangedSubview(descriptionLabel)
         stackLabel.addArrangedSubview(priceLabel)
         
-        addSubview(countStack)
+        contentView.addSubview(countStack)
         countStack.snp.makeConstraints { make in
             make.bottom.equalToSuperview().offset(-8)
             make.trailing.equalToSuperview().offset(-16)
@@ -132,31 +137,6 @@ class ProductsCell: UICollectionViewCell {
         countStack.addArrangedSubview(plusButton)
     }
     
-//    @objc
-//    private func plusBtnTapped() {
-//        delagate?.dicrease()
-//    }
-//    
-//    @objc
-//    private func minusBtnTapped() {
-//        delagate?.increase()
-//    }
-//    
-//    func fillCounter(with model: CounterModel) {
-//        countLabel.text = String(model.counter)
-//    }
-    
-//    func loadImage(with urlString: String) {
-//        guard let url = URL(string: urlString) else { return }
-//        
-//        URLSession.shared.dataTask(with: url) { [ weak self ] data, _, error in
-//            guard let data = data, error == nil, let image = UIImage(data: data) else { return }
-//            DispatchQueue.main.async {
-//                self?.cellImage.image = image
-//            }
-//        }.resume()
-//    }
-    
     func fill(with model: Product) {
         titleLabel.text = model.strMeal
         priceLabel.text = String(model.idMeal)
@@ -165,21 +145,15 @@ class ProductsCell: UICollectionViewCell {
                 self.cellImage.image = image
             }
         }
-       // loadImage(with: model.strMealThumb)
     }
     
-    var counter: Int = 0 {
-            didSet {
-                countLabel.text = "\(counter)"
-            }
-        }
-
-        @objc func plusBtnTapped() {
-            counter += 1
-        }
-
-        @objc func minusBtnTapped() {
-            counter = max(0,
-                          counter - 1)
-        }
+    @objc
+    private func plusBtnTapped() {
+        counter += 1
+    }
+    
+    @objc
+    private func minusBtnTapped() {
+        counter = max(0, counter - 1)
+    }
 }

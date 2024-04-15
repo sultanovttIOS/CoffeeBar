@@ -13,7 +13,7 @@ struct Categories: Codable {
 
 struct Category: Codable, Equatable {
     let strCategory: String
-    
+    //MARK: Доработать
 //    enum CodingKeys: String, CodingKey {
 //        case title = "strCategory"
 //    }
