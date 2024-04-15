@@ -8,8 +8,10 @@
 import Foundation
 import FirebaseAuth
 
-class AuthService {
+final class AuthService {
     static let shared = AuthService()
+    
+    private init() {}
     
     func signIn(
         with email: String = "asa04@gmail.com", 

@@ -63,9 +63,7 @@ class AuthorizationView: UIView {
             for: .valueChanged)
         return view
     }()
-    
-    var didLoginBtnTapped: (() -> Void)?
-        
+            
     weak var delegate: AuthorizationViewControllerDelegate?
     
     override init(frame: CGRect) {
@@ -112,6 +110,6 @@ class AuthorizationView: UIView {
     
     @objc 
     private func loginBtnTapped() {
-        didLoginBtnTapped?()
+        delegate?.didLoginBtnTapped(with: phoneNumberTf.text ?? "")
     }
 }

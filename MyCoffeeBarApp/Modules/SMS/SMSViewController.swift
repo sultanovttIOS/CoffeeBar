@@ -8,12 +8,30 @@
 import UIKit
 import FirebaseAuth
 
-class SMSViewController: UINavigationController {
+protocol SMSDelegate: AnyObject {
+    func didLoginBtnTapped()
+}
 
-    private let authService = AuthService()
+class SMSViewController: UIViewController {
 
+    private let smsCodeView = SMSCodeView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        setupUI()
+        smsCodeView.delegate = self
+    }
+    
+    private func setupUI() {
+        view.addSubview(smsCodeView)
+        smsCodeView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+    }
+}
+
+extension SMSViewController: SMSDelegate {
+    func didLoginBtnTapped() {
+        navigationController?.pushViewController(TabBarViewController(), animated: true)
     }
 }
