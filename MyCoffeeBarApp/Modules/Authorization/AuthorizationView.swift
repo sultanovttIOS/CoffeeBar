@@ -39,18 +39,20 @@ class AuthorizationView: UIView {
         return view
     }()
     
-    lazy var phoneNumberTf: UITextField = {
+    private lazy var phoneNumberTf: UITextField = {
         let view = UITextField()
-        view.placeholder = "555 555 555"
+        view.placeholder = "email"
         view.leftViewMode = .always
-        let leftView = UIView(frame: CGRect(x: 0,
-                                            y: 0,
-                                            width: 56,
-                                            height: 56))
-        let image = UIImageView(frame: CGRect(x: 16,
-                                              y: 16,
-                                              width: 24,
-                                              height: 24))
+        let leftView = UIView(frame: CGRect(
+            x: 0,
+            y: 0,
+            width: 56,
+            height: 56))
+        let image = UIImageView(frame: CGRect(
+            x: 16,
+            y: 16,
+            width: 24,
+            height: 24))
         image.image = UIImage(named: "phone_icon")
         image.tintColor = .lightGray
         leftView.addSubview(image)
@@ -63,7 +65,34 @@ class AuthorizationView: UIView {
             for: .valueChanged)
         return view
     }()
-            
+    
+    private lazy var passwordTf: UITextField = {
+        let view = UITextField()
+        view.placeholder = "password"
+        view.leftViewMode = .always
+        let leftView = UIView(frame: CGRect(
+            x: 0,
+            y: 0,
+            width: 56,
+            height: 56))
+        let image = UIImageView(frame: CGRect(
+            x: 16,
+            y: 16,
+            width: 24,
+            height: 24))
+        image.image = UIImage(named: "phone_icon")
+        image.tintColor = .lightGray
+        leftView.addSubview(image)
+        view.leftView = leftView
+        view.backgroundColor = .systemGray6
+        view.layer.cornerRadius = 25
+        view.addTarget(
+            self,
+            action: #selector(loginBtnTapped),
+            for: .valueChanged)
+        return view
+    }()
+    
     weak var delegate: AuthorizationViewControllerDelegate?
     
     override init(frame: CGRect) {
@@ -81,7 +110,7 @@ class AuthorizationView: UIView {
         addSubview(subTitleLabel)
         addSubview(loginButton)
         addSubview(phoneNumberTf)
-        
+        addSubview(passwordTf)
         titleImage.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(155)
             make.width.equalTo(170)
@@ -100,8 +129,14 @@ class AuthorizationView: UIView {
             make.height.equalTo(56)
             make.centerX.equalToSuperview()
         }
+        passwordTf.snp.makeConstraints { make in
+            make.top.equalTo(phoneNumberTf.snp.bottom).offset(32)
+            make.width.equalTo(343)
+            make.height.equalTo(56)
+            make.centerX.equalToSuperview()
+        }
         loginButton.snp.makeConstraints { make in
-            make.top.equalTo(phoneNumberTf.snp.bottom).offset(20)
+            make.top.equalTo(passwordTf.snp.bottom).offset(20)
             make.width.equalTo(343)
             make.height.equalTo(56)
             make.centerX.equalToSuperview()
@@ -110,6 +145,8 @@ class AuthorizationView: UIView {
     
     @objc 
     private func loginBtnTapped() {
-        delegate?.didLoginBtnTapped(with: phoneNumberTf.text ?? "")
+        delegate?.didLoginBtnTapped(
+            with: phoneNumberTf.text ?? "",
+            password: passwordTf.text ?? "")
     }
 }

@@ -8,8 +8,12 @@
 import UIKit
 import FirebaseAuth
 
+//protocol AuthorizationViewControllerDelegate: AnyObject {
+//    func didLoginBtnTapped(with number: String)
+//MARK: protocol with phoneNumber
+//}
 protocol AuthorizationViewControllerDelegate: AnyObject {
-    func didLoginBtnTapped(with number: String)
+    func didLoginBtnTapped(with email: String, password: String) //MARK: protocol with email
 }
 
 class AuthorizationViewController: UIViewController {
@@ -52,8 +56,9 @@ class AuthorizationViewController: UIViewController {
 }
 
 extension AuthorizationViewController: AuthorizationViewControllerDelegate {
-    func didLoginBtnTapped(with number: String) {
-        AuthService.shared.sendSms(with: number) { result in
+    
+    func didLoginBtnTapped(with email: String, password: String) {
+        AuthService.shared.signIn(with: email, password: password) { result in
             DispatchQueue.main.async {
                 switch result {
                 case .success(()):
@@ -65,3 +70,18 @@ extension AuthorizationViewController: AuthorizationViewControllerDelegate {
         }
     }
 }
+
+//extension AuthorizationViewController: AuthorizationViewControllerDelegate {
+//    func didLoginBtnTapped(with number: String) {
+//        AuthService.shared.sendSms(with: number) { result in
+//            DispatchQueue.main.async {
+//                switch result { //MARK: extension with phoneNumber
+//                case .success(()):
+//                    self.loginBtnTapped()
+//                case .failure(let error):
+//                    print(error.localizedDescription)
+//                }
+//            }
+//        }
+//    }
+//}

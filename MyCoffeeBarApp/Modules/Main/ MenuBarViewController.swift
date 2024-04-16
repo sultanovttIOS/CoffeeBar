@@ -15,6 +15,7 @@ class  MenuBarViewController: UIViewController {
         return view
         
     }()
+    
     private lazy var menuBarCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
