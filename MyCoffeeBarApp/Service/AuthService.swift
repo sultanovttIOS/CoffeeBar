@@ -14,25 +14,22 @@ final class AuthService {
     private init() {}
     
     func signIn(
-        with email: String = "asa04@gmail.com", 
-        password: String = "123456",
+        with email: String,
+        password: String,
         completion: @escaping (Result<Void, Error>) -> Void
     ) {
-        Auth.auth().signIn(
-            withEmail: email,
-            password: password
-        ) { [weak self] authResult, error in
-            guard let strongSelf = self else { return }
-            if let authResult {
-                strongSelf.saveSession()
+        Auth.auth().signIn(withEmail: email, password: password) { authDataResult, error in
+            if authDataResult != nil {
+                self.saveSession()
                 completion(.success(()))
             }
             if let error {
                 completion(.failure(error))
+                print(error.localizedDescription)
             }
         }
-        
     }
+    
     func saveSession() {
         let date = Date()
         guard let oneMinLater = Calendar.current.date(
@@ -53,7 +50,9 @@ final class AuthService {
                     return
                 }
                 if let verificationID {
-                    UserDefaults.standard.set(verificationID, forKey: "authVerificationID")
+                    UserDefaults.standard.set(
+                        verificationID,
+                        forKey: "authVerificationID")
                     completion(.success(()))
                 }
             }
@@ -62,7 +61,8 @@ final class AuthService {
     func signIn(with verificationCode: String,  completion: @escaping (
         Result<AuthDataResult, Error>) -> Void
     ) {
-        let verificationID = UserDefaults.standard.string(forKey: "authVerificationID") ?? ""
+        let verificationID = UserDefaults.standard.string(
+            forKey: "authVerificationID") ?? ""
         let credential = PhoneAuthProvider.provider().credential(
             withVerificationID: verificationID,
             verificationCode: verificationCode)
@@ -72,6 +72,7 @@ final class AuthService {
                 completion(.failure(error))
             }
             if let authResult {
+//                self.saveSession()
                 completion(.success(authResult))
             }
         }
