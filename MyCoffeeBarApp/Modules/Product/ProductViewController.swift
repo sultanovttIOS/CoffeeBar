@@ -9,45 +9,39 @@ import UIKit
 import SnapKit
 
 class ProductViewController: UIViewController {
-
-    private lazy var productImageCollectionView: UICollectionView = {
-        let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .horizontal
-        let view = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        view.register(ImageCell.self, forCellWithReuseIdentifier: ImageCell.reuseId)
-        return view
-    }()
-    
-    private let descriptionView = DescriptionView()
-    
-    deinit {
-        print("ProductsViewController deinited")
-    }
-    
-    var data: Product?
+    private let productDetailsView = DescriptionView()
+    var idMeal: String!
+    private let networkLayer = NetworkLayer()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .white
+        loadMealDetails(idMeal: idMeal)
         setupUI()
     }
     
     private func setupUI() {
-        view.backgroundColor = .systemBackground
-        setupConstraints()
+        view.addSubview(productDetailsView)
+        productDetailsView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+        productDetailsView.didOrderTapped = { [ weak self ] in
+            guard let self else { return }
+            navigationController?.popToRootViewController(animated: true)
+        }
     }
     
-    private func setupConstraints() {
-        view.addSubview(productImageCollectionView)
-        productImageCollectionView.snp.makeConstraints { make in
-            make.top.equalToSuperview()
-            make.width.equalToSuperview()
-            make.height.equalTo(225)
-        }
-        view.addSubview(descriptionView)
-        descriptionView.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(196)
-            make.bottom.equalToSuperview()
-            make.width.equalToSuperview()
+    func loadMealDetails(idMeal: String) {
+        networkLayer.fetchIdMealDetails(by: idMeal) { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success(let mealDetails):
+                DispatchQueue.main.async {
+                    self.productDetailsView.fill(with: mealDetails)
+                }
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
         }
     }
 }

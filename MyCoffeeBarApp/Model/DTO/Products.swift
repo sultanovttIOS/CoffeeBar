@@ -7,6 +7,7 @@
 
 import Foundation
 
+//MARK: Доработать
 struct Products: Codable {
     let meals: [Product]
 
@@ -31,4 +32,17 @@ struct Product: Codable {
 //    static func ==(lhs: Product, rhs: Product) -> Bool {
 //        return lhs.title == rhs.title
 //    }
+}
+
+struct Meals: Codable {
+    let meals: [Meal]
+}
+
+struct Meal: Codable {
+    let idMeal: String
+    let strMeal: String
+    let strCategory: String
+    let strArea: String
+    let strInstructions: String
+    let strMealThumb: String
 }

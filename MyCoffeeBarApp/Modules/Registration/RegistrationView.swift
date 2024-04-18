@@ -7,9 +7,9 @@
 import UIKit
 import SnapKit
 
-class StartView: UIView {
+class RegistrationView: UIView {
     
-    private lazy var titleImage: UIImageView = {
+    private lazy var mainImage: UIImageView = {
         let view = UIImageView()
         view.contentMode = .scaleAspectFit
         view.image = UIImage(named: "title_icon")
@@ -57,8 +57,8 @@ class StartView: UIView {
     }
     
     private func setupConstraints() {
-        addSubview(titleImage)
-        titleImage.snp.makeConstraints { make in
+        addSubview(mainImage)
+        mainImage.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(234)
             make.width.equalTo(170)
             make.height.equalTo(80)
@@ -66,7 +66,7 @@ class StartView: UIView {
         }
         addSubview(loginButton)
         loginButton.snp.makeConstraints { make in
-            make.top.equalTo(titleImage.snp.bottom).offset(98)
+            make.top.equalTo(mainImage.snp.bottom).offset(98)
             make.width.equalTo(343)
             make.height.equalTo(56)
             make.centerX.equalToSuperview()

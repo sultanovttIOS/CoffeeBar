@@ -7,8 +7,7 @@
 
 import UIKit
 
-final class TapBarViewController: UITabBarController {
-    
+final class TabBarViewController: UITabBarController {
     private let customTabBar = CustomTabBar()
     
     override func viewDidLoad() {
@@ -18,7 +17,6 @@ final class TapBarViewController: UITabBarController {
     }
     
     private func setupTabItems() {
-        
         let homeVC =  MenuBarViewController()
         homeVC.tabBarItem.image = UIImage(systemName: "house")
         

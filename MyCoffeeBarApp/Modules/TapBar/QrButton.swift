@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import SnapKit
 
 final class QrButton: UIButton {
     
@@ -33,5 +32,4 @@ final class QrButton: UIButton {
         layer.shadowOffset = CGSize(width: 0, height: 5)
         translatesAutoresizingMaskIntoConstraints = false
     }
-    
 }

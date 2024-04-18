@@ -8,9 +8,9 @@
 import UIKit
 import SnapKit
 
-class StartViewController: UIViewController {
+class RegistrationViewController: UIViewController {
 
-    private let startView = StartView(frame: .zero)
+    private let startView = RegistrationView()
     
     deinit {
         print("StartViewController deinited")
