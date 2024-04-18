@@ -8,12 +8,12 @@
 import UIKit
 import FirebaseAuth
 
-//protocol AuthorizationViewControllerDelegate: AnyObject {
-//    func didLoginBtnTapped(with number: String)
-//MARK: protocol with phoneNumber
-//}
 protocol AuthorizationViewControllerDelegate: AnyObject {
-    func didLoginBtnTapped(with email: String, password: String) //MARK: protocol with email
+    func didLoginBtn(
+        with email: String,
+        password: String
+    )
+    func didPhoneBtn()
 }
 
 class AuthorizationViewController: UIViewController {
@@ -50,38 +50,28 @@ class AuthorizationViewController: UIViewController {
     }
     
     private func loginBtnTapped() {
-        let vc = SMSViewController()
+        let vc = TabBarViewController()
         navigationController?.pushViewController(vc, animated: true)
     }
 }
 
 extension AuthorizationViewController: AuthorizationViewControllerDelegate {
     
-    func didLoginBtnTapped(with email: String, password: String) {
+    func didLoginBtn(with email: String, password: String) {
         AuthService.shared.signIn(with: email, password: password) { result in
             DispatchQueue.main.async {
-                switch result {
-                case .success(()):
-                    self.loginBtnTapped()
-                case .failure(let error):
-                    print(error.localizedDescription)
+                    switch result {
+                    case .success(()):
+                        self.loginBtnTapped()
+                    case .failure(let error):
+                        print(error.localizedDescription)
                 }
             }
         }
     }
+    
+    func didPhoneBtn() {
+        let vc = PhoneNumberViewController()
+        navigationController?.pushViewController(vc, animated: true)
+    }
 }
-
-//extension AuthorizationViewController: AuthorizationViewControllerDelegate {
-//    func didLoginBtnTapped(with number: String) {
-//        AuthService.shared.sendSms(with: number) { result in
-//            DispatchQueue.main.async {
-//                switch result { //MARK: extension with phoneNumber
-//                case .success(()):
-//                    self.loginBtnTapped()
-//                case .failure(let error):
-//                    print(error.localizedDescription)
-//                }
-//            }
-//        }
-//    }
-//}

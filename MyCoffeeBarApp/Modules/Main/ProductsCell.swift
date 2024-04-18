@@ -8,11 +8,6 @@
 import UIKit
 import SnapKit
 
-//protocol ProductCellDelegate: AnyObject {
-//    func increase()
-//    func dicrease()
-//}
-
 class ProductsCell: UICollectionViewCell {
     static let reuseId = "coffee_cell"
     
@@ -92,7 +87,6 @@ class ProductsCell: UICollectionViewCell {
         return view
     }()
     
-//    weak var delagate: ProductCellDelegate?
     var counter: Int = 0 {
         didSet {
             countLabel.text = "\(counter)"
@@ -140,12 +134,21 @@ class ProductsCell: UICollectionViewCell {
     func fill(with model: Product) {
         titleLabel.text = model.strMeal
         priceLabel.text = String(model.idMeal)
-        ImageDownloader.shared.loadImage(with: model.strMealThumb) { result in
-            if case .success(let image) = result {
-                self.cellImage.image = image
+        
+        DispatchQueue.main.async {
+            ImageDownloader.shared.loadImage(with: model.strMealThumb) { result in
+                DispatchQueue.main.async {
+                    switch result {
+                    case .success(let image):
+                        self.cellImage.image = image
+                    case .failure(let error):
+                        print("Failed to load image:", error.localizedDescription)
+                    }
+                }
             }
         }
     }
+
     
     @objc
     private func plusBtnTapped() {

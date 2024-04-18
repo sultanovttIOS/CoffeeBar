@@ -8,7 +8,8 @@
 import Foundation
 
 class NetworkLayer {
-    private let baseURL = URL(string: "https://www.themealdb.com/api/json/v1/1/")!
+    private let baseURL = URL(
+        string: "https://www.themealdb.com/api/json/v1/1/")!
     private let decoder = JSONDecoder()
     private let encoder = JSONEncoder()
     
@@ -16,7 +17,9 @@ class NetworkLayer {
         Result<[Category], Error>) -> Void
     ) {
         let url = baseURL.appendingPathComponent("categories.php")
-        let components = URLComponents(url: url, resolvingAgainstBaseURL: true)
+        let components = URLComponents(
+            url: url,
+            resolvingAgainstBaseURL: true)
         guard let url = components?.url else { return }
         let request = URLRequest(url: url)
         
@@ -41,7 +44,9 @@ class NetworkLayer {
             Result<[Product], Error>) -> Void
     ) {
         let url = baseURL.appendingPathComponent("filter.php")
-        var components = URLComponents(url: url, resolvingAgainstBaseURL: true)
+        var components = URLComponents(
+            url: url,
+            resolvingAgainstBaseURL: true)
         components?.queryItems = [.init(name: "c", value: categoryName)]
         guard let url = components?.url else { return }
         let request = URLRequest(url: url)
@@ -66,7 +71,9 @@ class NetworkLayer {
             Result<Meal, Error>) -> Void
     ) {
         let url = baseURL.appendingPathComponent("lookup.php")
-        var components = URLComponents(url: url, resolvingAgainstBaseURL: true)
+        var components = URLComponents(
+            url: url,
+            resolvingAgainstBaseURL: true)
         components?.queryItems = [.init(name: "i", value: idMeal)]
         guard let url = components?.url else { return }
         let request = URLRequest(url: url)

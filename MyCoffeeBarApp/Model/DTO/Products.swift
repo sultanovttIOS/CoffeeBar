@@ -45,5 +45,4 @@ struct Meal: Codable {
     let strArea: String
     let strInstructions: String
     let strMealThumb: String
-
 }
