@@ -76,8 +76,9 @@ class DescriptionView: UIView {
         super.init(frame: frame)
         backgroundColor = .systemBackground
         setupConstraints()
-        buyButton.addTarget(self, action: #selector(buyBtnTapped), for: .touchUpInside)
-        
+        buyButton.addTarget(
+            self, action: #selector(buyBtnTapped),
+            for: .touchUpInside)
     }
     
     required init?(coder: NSCoder) {

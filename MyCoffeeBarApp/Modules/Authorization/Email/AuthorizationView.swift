@@ -19,7 +19,7 @@ class AuthorizationView: UIView {
     
     private lazy var subTitleLabel: UILabel = {
         let view = UILabel()
-        view.text = "Вход"
+        view.text = "Authorization"
         view.font = .systemFont(ofSize: 34)
         view.textColor = .black
         view.textAlignment = .left
@@ -28,7 +28,7 @@ class AuthorizationView: UIView {
     
     private lazy var loginButton: UIButton = {
         let view = UIButton(type: .system)
-        view.setTitle("Войти", for: .normal)
+        view.setTitle("Login", for: .normal)
         view.tintColor = .white
         view.layer.cornerRadius = 25
         view.backgroundColor = .orange
@@ -39,9 +39,9 @@ class AuthorizationView: UIView {
         return view
     }()
     
-    private lazy var phoneNumberTf: UITextField = {
+    private lazy var emailTf: UITextField = {
         let view = UITextField()
-        view.placeholder = "email"
+        view.placeholder = "Email"
         view.leftViewMode = .always
         let leftView = UIView(frame: CGRect(
             x: 0,
@@ -53,7 +53,7 @@ class AuthorizationView: UIView {
             y: 16,
             width: 24,
             height: 24))
-        image.image = UIImage(named: "phone_icon")
+        image.image = UIImage(systemName: "envelope.fill" )
         image.tintColor = .lightGray
         leftView.addSubview(image)
         view.leftView = leftView
@@ -68,7 +68,7 @@ class AuthorizationView: UIView {
     
     private lazy var passwordTf: UITextField = {
         let view = UITextField()
-        view.placeholder = "password"
+        view.placeholder = "Password"
         view.leftViewMode = .always
         let leftView = UIView(frame: CGRect(
             x: 0,
@@ -80,7 +80,7 @@ class AuthorizationView: UIView {
             y: 16,
             width: 24,
             height: 24))
-        image.image = UIImage(named: "phone_icon")
+        image.image = UIImage(systemName: "key.fill")
         image.tintColor = .lightGray
         leftView.addSubview(image)
         view.leftView = leftView
@@ -90,6 +90,14 @@ class AuthorizationView: UIView {
             self,
             action: #selector(loginBtnTapped),
             for: .valueChanged)
+        return view
+    }()
+    
+    private lazy var authWithNumber: UIButton = {
+        let view = UIButton(type: .system)
+        view.setTitle("Phone number", for: .normal)
+        view.tintColor = .link
+        view.addTarget(self, action: #selector(phoneBtnTapped), for: .touchUpInside)
         return view
     }()
     
@@ -109,8 +117,9 @@ class AuthorizationView: UIView {
         addSubview(titleImage)
         addSubview(subTitleLabel)
         addSubview(loginButton)
-        addSubview(phoneNumberTf)
+        addSubview(emailTf)
         addSubview(passwordTf)
+        addSubview(authWithNumber)
         titleImage.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(155)
             make.width.equalTo(170)
@@ -119,34 +128,44 @@ class AuthorizationView: UIView {
         }
         subTitleLabel.snp.makeConstraints { make in
             make.top.equalTo(titleImage.snp.bottom).offset(60)
-            make.width.equalTo(79)
+            make.width.equalTo(200)
             make.height.equalTo(34)
             make.left.equalToSuperview().offset(16)
         }
-        phoneNumberTf.snp.makeConstraints { make in
+        emailTf.snp.makeConstraints { make in
             make.top.equalTo(subTitleLabel.snp.bottom).offset(32)
             make.width.equalTo(343)
             make.height.equalTo(56)
             make.centerX.equalToSuperview()
         }
         passwordTf.snp.makeConstraints { make in
-            make.top.equalTo(phoneNumberTf.snp.bottom).offset(32)
+            make.top.equalTo(emailTf.snp.bottom).offset(20)
             make.width.equalTo(343)
             make.height.equalTo(56)
             make.centerX.equalToSuperview()
         }
-        loginButton.snp.makeConstraints { make in
+        authWithNumber.snp.makeConstraints { make in
             make.top.equalTo(passwordTf.snp.bottom).offset(20)
+            make.centerX.equalToSuperview()
+            make.height.equalTo(20)
+        }
+        loginButton.snp.makeConstraints { make in
+            make.top.equalTo(authWithNumber.snp.bottom).offset(20)
             make.width.equalTo(343)
             make.height.equalTo(56)
             make.centerX.equalToSuperview()
         }
     }
     
-    @objc 
+    @objc
     private func loginBtnTapped() {
-        delegate?.didLoginBtnTapped(
-            with: phoneNumberTf.text ?? "",
+        delegate?.didLoginBtn(
+            with: emailTf.text ?? "",
             password: passwordTf.text ?? "")
+    }
+    
+    @objc
+    private func phoneBtnTapped() {
+        delegate?.didPhoneBtn()
     }
 }
