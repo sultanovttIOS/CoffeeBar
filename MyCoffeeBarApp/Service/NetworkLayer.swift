@@ -58,6 +58,8 @@ class NetworkLayer {
             if let data {
                 do {
                     let model = try self.decoder.decode(Products.self, from: data)
+                    //if
+                    sleep(2)
                     completion(.success(model.meals))
                 } catch {
                     completion(.failure(error))

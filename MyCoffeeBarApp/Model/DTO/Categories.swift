@@ -23,3 +23,7 @@ struct Category: Codable, Equatable {
 //        
 //    }
 }
+
+struct CounterModel {
+    var counter: Int
+}

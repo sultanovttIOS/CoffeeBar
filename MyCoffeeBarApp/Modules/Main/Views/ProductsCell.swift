@@ -53,7 +53,8 @@ class ProductsCell: UICollectionViewCell {
     
     private lazy var minusButton: UIButton = {
         let view = UIButton(type: .system)
-        view.setImage(UIImage(named: "minus_icon"), for: .normal)
+        view.setTitle("-", for: .normal)
+        view.titleLabel?.font = .systemFont(ofSize: 25)
         view.tintColor = .black
         view.backgroundColor = .systemGray6
         view.layer.cornerRadius = 14
@@ -72,7 +73,8 @@ class ProductsCell: UICollectionViewCell {
     
     private lazy var plusButton: UIButton = {
         let view = UIButton(type: .system)
-        view.setImage(UIImage(named: "plus_icon"), for: .normal)
+        view.setTitle("+", for: .normal)
+        view.titleLabel?.font = .systemFont(ofSize: 25)
         view.tintColor = .white
         view.backgroundColor = .orange
         view.layer.cornerRadius = 14
