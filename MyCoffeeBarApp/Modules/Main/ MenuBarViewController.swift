@@ -13,19 +13,20 @@ class  MenuBarViewController: UIViewController {
         let view = UISearchBar()
         view.placeholder = "Search"
         return view
-        
     }()
     
     private lazy var menuBarCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         layout.minimumInteritemSpacing = 15
-        let view = UICollectionView(frame: .zero,
-                                    collectionViewLayout: layout)
+        let view = UICollectionView(
+            frame: .zero,
+            collectionViewLayout: layout)
         view.dataSource = self
         view.delegate = self
-        view.register(MenuBarCell.self,
-                      forCellWithReuseIdentifier: MenuBarCell.reuseId)
+        view.register(
+            MenuBarCell.self,
+            forCellWithReuseIdentifier: MenuBarCell.reuseId)
         view.showsHorizontalScrollIndicator = false
         return view
     }()
@@ -38,18 +39,31 @@ class  MenuBarViewController: UIViewController {
         return view
     }()
     
+    private lazy var refreshControl: UIRefreshControl = {
+        let view = UIRefreshControl()
+        view.addTarget(
+            self,
+            action: #selector(refreshProducts),
+            for: .valueChanged)
+        view.attributedTitle = NSAttributedString(string: "loading...")
+        return view
+    }()
+    
     private lazy var productsCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
         layout.minimumInteritemSpacing = 15
-        let view = UICollectionView(frame: .zero,
-                                    collectionViewLayout: layout)
+        let view = UICollectionView(
+            frame: .zero,
+            collectionViewLayout: layout)
         view.dataSource = self
         view.delegate = self
-        view.register(ProductsCell.self,
-                      forCellWithReuseIdentifier: ProductsCell.reuseId)
+        view.register(
+            ProductsCell.self,
+            forCellWithReuseIdentifier: ProductsCell.reuseId)
         view.showsVerticalScrollIndicator = false
         view.isUserInteractionEnabled = true
+        view.refreshControl = refreshControl
         return view
     }()
     
@@ -65,6 +79,19 @@ class  MenuBarViewController: UIViewController {
     }
     private var selectedCategoryIndex: Int = 0
     
+    private var isLoading = false {
+        didSet {
+            DispatchQueue.main.async {
+//                _ = self.isLoading ? self.refreshControl.beginRefreshing()
+//                : self.refreshControl.endRefreshing()
+                if self.isLoading {
+                    self.refreshControl.beginRefreshing()
+                } else {
+                    self.refreshControl.endRefreshing()
+                }
+            }
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
@@ -110,7 +137,10 @@ class  MenuBarViewController: UIViewController {
     }
     
     private func fetchCategories() {
-        networkLayer.fetchCategories { result in
+        isLoading = true
+        networkLayer.fetchCategories { [weak self] result in
+            guard let self else { return }
+            isLoading = false
             switch result {
             case .success(let categories):
                 DispatchQueue.main.async {
@@ -125,7 +155,10 @@ class  MenuBarViewController: UIViewController {
     }
     
     private func fetchProducts(by category: Category) {
-        networkLayer.fetchProducts(by: category.strCategory) { result in
+        isLoading = true
+        networkLayer.fetchProducts(by: category.strCategory) { [weak self] result in
+            guard let self else { return }
+            isLoading = false
             switch result {
             case .success(let products):
                 DispatchQueue.main.async {
@@ -137,6 +170,27 @@ class  MenuBarViewController: UIViewController {
                 print(error.localizedDescription)
             }
         }
+    }
+    
+    @objc 
+    private func refreshProducts() {
+        if let selectedCategory {
+            fetchProducts(by: selectedCategory)
+        }
+    }
+    
+    //MARK: Доработать
+    @objc
+    private func searchMeal() {
+        guard let searchText = searchBar.text, !searchText.isEmpty else {
+            updatedProducts = products
+            menuBarCollectionView.reloadData()
+            return
+        }
+        var updatedProducts = products.filter { product in
+            return product.strMeal.lowercased().contains(searchText.lowercased())
+        }
+        menuBarCollectionView.reloadData()
     }
 }
 

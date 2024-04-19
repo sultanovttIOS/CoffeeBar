@@ -16,7 +16,7 @@ class ProductViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        loadMealDetails(idMeal: idMeal)
+        loadMealDetails(idMeal: idMeal!)
         setupUI()
     }
     

@@ -20,15 +20,23 @@ final class TabBarViewController: UITabBarController {
         let homeVC =  MenuBarViewController()
         homeVC.tabBarItem.image = UIImage(systemName: "house")
         
-        let basketVC = ProductViewController()
+        let basketVC = BasketViewController()
         basketVC.tabBarItem.image = UIImage(systemName: "basket")
         
-        let locationVC = StartViewController()
+        let locationVC = RegistrationViewController()
         locationVC.tabBarItem.image = UIImage(systemName: "safari")
         
         let profileVC = AuthorizationViewController()
         profileVC.tabBarItem.image = UIImage(systemName: "person")
         
-        setViewControllers([homeVC, basketVC, locationVC, profileVC], animated: true)
+        setViewControllers(
+            [
+                homeVC,
+                basketVC,
+                locationVC,
+                profileVC
+            ],
+            animated: true
+        )
     }
 }

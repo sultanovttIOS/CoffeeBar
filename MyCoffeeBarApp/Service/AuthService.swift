@@ -18,7 +18,12 @@ final class AuthService {
         password: String,
         completion: @escaping (Result<Void, Error>) -> Void
     ) {
-        Auth.auth().signIn(withEmail: email, password: password) { authDataResult, error in
+        Auth.auth().signIn(
+            withEmail: email,
+            password: password
+        ) {
+            authDataResult,
+            error in
             if authDataResult != nil {
                 self.saveSession()
                 completion(.success(()))
@@ -37,29 +42,39 @@ final class AuthService {
             value: 30,
             to: date
         ) else { return }
-        UserDefaults.standard.set(oneMinLater, forKey: "session")
+        UserDefaults.standard.set(
+            oneMinLater,
+            forKey: "session"
+        )
     }
     
-    func sendSms(with phoneNumber: String, completion: @escaping (
-        Result<Void, Error>) -> Void
+    func sendSms(
+        with phoneNumber: String,
+        completion: @escaping (Result<Void, Error>) -> Void
     ) {
         PhoneAuthProvider.provider()
-            .verifyPhoneNumber(phoneNumber, uiDelegate: nil) { verificationID, error in
-                if let error = error {
-                    completion(.failure(error))
-                    return
+            .verifyPhoneNumber(
+                phoneNumber,
+                uiDelegate: nil
+            ) {
+                verificationID,
+                error in
+                    if let error = error {
+                        completion(.failure(error))
+                        return
+                    }
+                    if let verificationID {
+                        UserDefaults.standard.set(
+                            verificationID,
+                            forKey: "authVerificationID")
+                        completion(.success(()))
+                    }
                 }
-                if let verificationID {
-                    UserDefaults.standard.set(
-                        verificationID,
-                        forKey: "authVerificationID")
-                    completion(.success(()))
-                }
-            }
     }
     
-    func signIn(with verificationCode: String,  completion: @escaping (
-        Result<AuthDataResult, Error>) -> Void
+    func signIn(
+        with verificationCode: String,
+        completion: @escaping (Result<AuthDataResult, Error>) -> Void
     ) {
         let verificationID = UserDefaults.standard.string(
             forKey: "authVerificationID") ?? ""
@@ -67,12 +82,15 @@ final class AuthService {
             withVerificationID: verificationID,
             verificationCode: verificationCode)
         
-        Auth.auth().signIn(with: credential) { authResult, error in
+        Auth.auth().signIn(
+            with: credential
+        ) {
+            authResult,
+            error in
             if let error = error {
                 completion(.failure(error))
             }
             if let authResult {
-//                self.saveSession()
                 completion(.success(authResult))
             }
         }
