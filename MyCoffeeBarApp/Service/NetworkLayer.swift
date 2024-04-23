@@ -87,11 +87,6 @@ class NetworkLayer {
         let request = URLRequest(url: url)
         
         URLSession.shared.dataTask(with: request) { data, _, error in
-            if let error {
-                completion(.failure(error))
-                return
-            }
-            
             if let data {
                 do {
                     let model = try self.decoder.decode(ProductResponse.self, from: data)
@@ -99,6 +94,10 @@ class NetworkLayer {
                 } catch {
                     completion(.failure(error))
                 }
+            }
+            if let error {
+                completion(.failure(error))
+                return
             }
         }.resume()
     }

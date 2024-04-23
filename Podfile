@@ -5,6 +5,6 @@ target 'MyCoffeeBarApp' do
   use_frameworks!
 
   # Pods for MyCoffeeBarApp
- pod 'SnapKit'
+ pod 'SnapKit', '~> 5.7.0'
  pod 'FirebaseAuth'
 end
