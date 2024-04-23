@@ -8,13 +8,15 @@
 import Foundation
 
 //MARK: Доработать
-
 struct ProductResponse: Codable {
     let products: [ProductPagination]
 }
 
 struct ProductPagination: Codable {
     let title: String
+    let thumbnail: String
+    let price: Int
+    let brand: String
 }
 
 struct Products: Codable {

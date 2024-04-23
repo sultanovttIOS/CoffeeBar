@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import FirebaseAuth
+import SnapKit
 
 protocol AuthorizationViewControllerDelegate: AnyObject {
     func didLoginBtn(
@@ -19,7 +19,7 @@ protocol AuthorizationViewControllerDelegate: AnyObject {
 class AuthorizationViewController: UIViewController {
         
     deinit {
-        print("AuthorizationViewController is deinited")
+        print("AuthorizationViewController deinited")
     }
         
     private let authorizationView = AuthorizationView()
@@ -52,13 +52,6 @@ class AuthorizationViewController: UIViewController {
             make.edges.equalToSuperview()
         }
     }
-    
-//    private func showTabBar() {
-//        let tabBarViewController = TabBarViewController()
-//        let navVc = UINavigationController(rootViewController: tabBarViewController)
-//        navVc.modalPresentationStyle = .fullScreen
-//        navigationController?.present(navVc, animated: false)
-//    }
     
     private func loginBtnTapped() {
         let vc = TabBarViewController()

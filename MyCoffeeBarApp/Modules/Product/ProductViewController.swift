@@ -45,8 +45,9 @@ class ProductViewController: UIViewController {
         let leftBtn = UIButton(type: .system)
         leftBtn.tintColor = .label
         leftBtn.setImage(UIImage(systemName: "chevron.backward"), for: .normal)
-        leftBtn.addTarget(self, action: #selector(backButtonTapped),
-                          for: .touchUpInside)
+        leftBtn.addTarget(
+            self, action: #selector(backButtonTapped),
+            for: .touchUpInside)
         let leftButton = UIBarButtonItem(customView: leftBtn)
         navigationItem.leftBarButtonItem = leftButton
     }

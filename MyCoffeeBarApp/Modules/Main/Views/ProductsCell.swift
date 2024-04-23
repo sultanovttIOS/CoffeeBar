@@ -153,6 +153,20 @@ class ProductsCell: UICollectionViewCell {
 
     func fill(with model: ProductPagination) {
         titleLabel.text = model.title
+        descriptionLabel.text = model.brand
+        priceLabel.text = String(model.price)
+        DispatchQueue.main.async {
+            ImageDownloader.shared.loadImage(with: model.thumbnail) { result in
+                DispatchQueue.main.async {
+                    switch result {
+                    case .success(let image):
+                        self.cellImage.image = image
+                    case .failure(let error):
+                        print("Failed to load image:", error.localizedDescription)
+                    }
+                }
+            }
+        }
     }
     
     @objc
