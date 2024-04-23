@@ -50,6 +50,6 @@ class MenuBarCell: UICollectionViewCell {
     }
     
     func fill(with model: Category) {
-        titleLabel.text = model.strCategory
+        titleLabel.text = model.title
     }
 }

@@ -59,7 +59,7 @@ class RegistrationView: UIView {
     private func setupConstraints() {
         addSubview(mainImage)
         mainImage.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(234)
+            make.top.equalToSuperview()
             make.width.equalTo(170)
             make.height.equalTo(80)
             make.centerX.equalToSuperview()

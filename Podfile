@@ -7,5 +7,4 @@ target 'MyCoffeeBarApp' do
   # Pods for MyCoffeeBarApp
  pod 'SnapKit'
  pod 'FirebaseAuth'
-pod 'VKID', '~> 1.0'
 end

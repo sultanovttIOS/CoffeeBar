@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class DescriptionView: UIView {
+class ProductView: UIView {
     private let scrollView: UIScrollView = {
         let view = UIScrollView()
         view.backgroundColor = .clear

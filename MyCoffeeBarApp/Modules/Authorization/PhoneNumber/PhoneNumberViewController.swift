@@ -23,6 +23,17 @@ class PhoneNumberViewController: UIViewController {
     private func setupUI() {
         setupConstraints()
         phonView.delegate = self
+        setupNavigationBar()
+    }
+    
+    private func setupNavigationBar() {
+        let leftBtn = UIButton(type: .system)
+        leftBtn.tintColor = .label
+        leftBtn.setImage(UIImage(systemName: "chevron.backward"), for: .normal)
+        leftBtn.addTarget(self, action: #selector(backButtonTapped),
+                          for: .touchUpInside)
+        let leftButton = UIBarButtonItem(customView: leftBtn)
+        navigationItem.leftBarButtonItem = leftButton
     }
     
     private func setupConstraints() {
@@ -33,8 +44,13 @@ class PhoneNumberViewController: UIViewController {
     }
     
     private func loginBtnTapped() {
-        let vc = MenuBarViewController()
+        let vc = TabBarViewController()
         navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    @objc
+    private func backButtonTapped() {
+        navigationController?.popViewController(animated: true)
     }
 }
 
