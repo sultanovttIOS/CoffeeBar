@@ -16,17 +16,27 @@ class RegistrationViewController: UIViewController {
         print("StartViewController deinited")
     }
     
-    override func loadView() {
-        super.loadView()
-        view = startView
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
     }
 
     private func setupUI() {
+        view.backgroundColor = .systemBackground
+        setupConstraints()
+        setupLoginButton()
+    }
+    
+    private func setupConstraints() {
+        view.addSubview(startView)
+        startView.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(234)
+            make.bottom.equalToSuperview().offset(272)
+            make.horizontalEdges.equalToSuperview().inset(16)
+        }
+    }
+    
+    private func setupLoginButton() {
         startView.didLoginBtnTapped = { [weak self] in
             guard let self else { return }
             let vc = AuthorizationViewController()

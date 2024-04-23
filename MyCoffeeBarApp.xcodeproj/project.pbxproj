@@ -27,7 +27,7 @@
 		CEE71CDC2BC2932500AD99E4 /* NetworkLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE71CDB2BC2932500AD99E4 /* NetworkLayer.swift */; };
 		CEE71CDE2BC2937F00AD99E4 /* Products.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE71CDD2BC2937F00AD99E4 /* Products.swift */; };
 		CEE71CE02BC3EACE00AD99E4 /* Categories.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE71CDF2BC3EACE00AD99E4 /* Categories.swift */; };
-		CEE71CE52BC5060600AD99E4 /* DescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE71CE42BC5060600AD99E4 /* DescriptionView.swift */; };
+		CEE71CE52BC5060600AD99E4 /* ProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE71CE42BC5060600AD99E4 /* ProductView.swift */; };
 		CEE71CEF2BC80D8700AD99E4 /* ImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE71CEE2BC80D8700AD99E4 /* ImageDownloader.swift */; };
 		CEE71CF12BC819ED00AD99E4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CEE71CF02BC819ED00AD99E4 /* GoogleService-Info.plist */; };
 		CEE71CF42BC9373D00AD99E4 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE71CF32BC9373D00AD99E4 /* AuthService.swift */; };
@@ -62,7 +62,7 @@
 		CEE71CDB2BC2932500AD99E4 /* NetworkLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkLayer.swift; sourceTree = "<group>"; };
 		CEE71CDD2BC2937F00AD99E4 /* Products.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Products.swift; sourceTree = "<group>"; };
 		CEE71CDF2BC3EACE00AD99E4 /* Categories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Categories.swift; sourceTree = "<group>"; };
-		CEE71CE42BC5060600AD99E4 /* DescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionView.swift; sourceTree = "<group>"; };
+		CEE71CE42BC5060600AD99E4 /* ProductView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductView.swift; sourceTree = "<group>"; };
 		CEE71CEE2BC80D8700AD99E4 /* ImageDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloader.swift; sourceTree = "<group>"; };
 		CEE71CF02BC819ED00AD99E4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CEE71CF32BC9373D00AD99E4 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
@@ -217,7 +217,7 @@
 		CEE71CC02BBEC0D200AD99E4 /* Product */ = {
 			isa = PBXGroup;
 			children = (
-				CEE71CE42BC5060600AD99E4 /* DescriptionView.swift */,
+				CEE71CE42BC5060600AD99E4 /* ProductView.swift */,
 				CEE71CC12BBEC13700AD99E4 /* ProductViewController.swift */,
 			);
 			path = Product;
@@ -434,7 +434,7 @@
 				CEE71CDC2BC2932500AD99E4 /* NetworkLayer.swift in Sources */,
 				CEE71C972BBC468000AD99E4 /* RegistrationViewController.swift in Sources */,
 				CEE71CF72BC94DC900AD99E4 /* SMSViewController.swift in Sources */,
-				CEE71CE52BC5060600AD99E4 /* DescriptionView.swift in Sources */,
+				CEE71CE52BC5060600AD99E4 /* ProductView.swift in Sources */,
 				CEE71CE02BC3EACE00AD99E4 /* Categories.swift in Sources */,
 				CEFB27B32BCF9FDA003A33DF /* PhoneNumberView.swift in Sources */,
 				CEFB27B12BCF9F8F003A33DF /* PhoneNumberViewController.swift in Sources */,

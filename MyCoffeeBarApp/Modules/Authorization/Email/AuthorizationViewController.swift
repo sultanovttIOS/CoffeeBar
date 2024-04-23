@@ -33,8 +33,19 @@ class AuthorizationViewController: UIViewController {
     private func setupUI() {
         view.backgroundColor = .systemBackground
         setupConstraints()
+        setupNavigationBar()
     }
 
+    private func setupNavigationBar() {
+        let leftBtn = UIButton(type: .system)
+        leftBtn.tintColor = .label
+        leftBtn.setImage(UIImage(systemName: "chevron.backward"), for: .normal)
+        leftBtn.addTarget(self, action: #selector(backButtonTapped),
+                          for: .touchUpInside)
+        let leftButton = UIBarButtonItem(customView: leftBtn)
+        navigationItem.leftBarButtonItem = leftButton
+    }
+    
     private func setupConstraints() {
         view.addSubview(authorizationView)
         authorizationView.snp.makeConstraints { make in
@@ -42,16 +53,20 @@ class AuthorizationViewController: UIViewController {
         }
     }
     
-    private func showTabBar() {
-        let tabBarViewController = TabBarViewController()
-        let navVc = UINavigationController(rootViewController: tabBarViewController)
-        navVc.modalPresentationStyle = .fullScreen
-        navigationController?.present(navVc, animated: false)
-    }
+//    private func showTabBar() {
+//        let tabBarViewController = TabBarViewController()
+//        let navVc = UINavigationController(rootViewController: tabBarViewController)
+//        navVc.modalPresentationStyle = .fullScreen
+//        navigationController?.present(navVc, animated: false)
+//    }
     
     private func loginBtnTapped() {
         let vc = TabBarViewController()
         navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    @objc private func backButtonTapped() {
+        navigationController?.popViewController(animated: true)
     }
 }
 

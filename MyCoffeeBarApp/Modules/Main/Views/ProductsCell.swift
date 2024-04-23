@@ -134,11 +134,11 @@ class ProductsCell: UICollectionViewCell {
     }
     
     func fill(with model: Product) {
-        titleLabel.text = model.strMeal
-        priceLabel.text = String(model.idMeal)
+        titleLabel.text = model.title
+        priceLabel.text = String(model.id)
         
         DispatchQueue.main.async {
-            ImageDownloader.shared.loadImage(with: model.strMealThumb) { result in
+            ImageDownloader.shared.loadImage(with: model.description) { result in
                 DispatchQueue.main.async {
                     switch result {
                     case .success(let image):
@@ -151,6 +151,9 @@ class ProductsCell: UICollectionViewCell {
         }
     }
 
+    func fill(with model: ProductPagination) {
+        titleLabel.text = model.title
+    }
     
     @objc
     private func plusBtnTapped() {

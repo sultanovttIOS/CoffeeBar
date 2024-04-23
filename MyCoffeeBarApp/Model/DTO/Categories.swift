@@ -12,16 +12,15 @@ struct Categories: Codable {
 }
 
 struct Category: Codable, Equatable {
-    let strCategory: String
-    //MARK: Доработать
-//    enum CodingKeys: String, CodingKey {
-//        case title = "strCategory"
-//    }
-//    
-//    static func ==(lhs: Category, rhs: Category) -> Bool {
-//        return lhs.title == rhs.title
-//        
-//    }
+    let title: String
+    
+    enum CodingKeys: String, CodingKey {
+        case title = "strCategory"
+    }
+    
+    static func ==(lhs: Category, rhs: Category) -> Bool {
+        return lhs.title == rhs.title
+    }
 }
 
 struct CounterModel {
