@@ -9,7 +9,7 @@ import UIKit
 import SnapKit
 
 class BasketViewController: UIViewController {
-
+    
     private lazy var productCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
@@ -26,7 +26,7 @@ class BasketViewController: UIViewController {
         view.isUserInteractionEnabled = true
         return view
     }()
-
+    
     
     private lazy var activityIndicator: UIActivityIndicatorView = {
         let view = UIActivityIndicatorView()
@@ -52,6 +52,7 @@ class BasketViewController: UIViewController {
             }
         }
     }
+    
     private var page = 1
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -78,6 +79,25 @@ class BasketViewController: UIViewController {
             make.size.equalTo(50)
         }
     }
+    
+//    private func setupNavigationBar() {
+//        self.navigationController?.navigationItem.title = "Basket"
+//        self.navigationController?.navigationItem.rightBarButtonItem = UIBarButtonItem(
+//            image: UIImage(systemName: "bell"),
+//            style: .plain,
+//            target: nil,
+//            action: #selector(bellTapped))
+//        self.navigationController?.navigationItem.rightBarButtonItem?.tintColor = .label
+//        
+//        let leftBtn = UIButton(type: .system)
+//        leftBtn.tintColor = .label
+//        leftBtn.setImage(UIImage(systemName: "chevron.backward"), for: .normal)
+//        leftBtn.addTarget(
+//            self, action: #selector(backButtonTapped),
+//            for: .touchUpInside)
+//        let leftButton = UIBarButtonItem(customView: leftBtn)
+//        self.navigationController?.navigationItem.leftBarButtonItem = leftButton
+//    }
     
     private func fetchProducts() {
         isLoading = true

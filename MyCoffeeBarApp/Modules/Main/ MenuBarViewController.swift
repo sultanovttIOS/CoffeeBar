@@ -107,29 +107,21 @@ class  MenuBarViewController: UIViewController {
     private func setupUI() {
         view.backgroundColor = .systemBackground
         setupConstraints()
-        setupNavigationBar()
         fetchCategories()
         updatedProducts = products
     }
 
-    private func setupNavigationBar() {
-        navigationController?.navigationItem.title = "Menu"
-        navigationController?.navigationItem.rightBarButtonItem = UIBarButtonItem(
-            image: UIImage(systemName: "bell"),
-            style: .plain,
-            target: nil,
-            action: #selector(bellTapped))
-        navigationController?.navigationItem.rightBarButtonItem?.tintColor = .label
-        
-        let leftBtn = UIButton(type: .system)
-        leftBtn.tintColor = .label
-        leftBtn.setImage(UIImage(systemName: "chevron.backward"), for: .normal)
-        leftBtn.addTarget(
-            self, action: #selector(backButtonTapped),
-            for: .touchUpInside)
-        let leftButton = UIBarButtonItem(customView: leftBtn)
-        navigationController?.navigationItem.leftBarButtonItem = leftButton
-    }
+//    private func setupNavigationBar() {
+//        navigationItem.title = "Menu"
+//        navigationItem.rightBarButtonItem = UIBarButtonItem(
+//            image: UIImage(systemName: "bell"),
+//            style: .plain,
+//            target: nil,
+//            action: #selector(bellTapped))
+//        navigationItem.rightBarButtonItem?.tintColor = .label
+//        navigationItem.hidesBackButton = true
+//         navigationController?.navigationBar.prefersLargeTitles = true
+//    }
     
     private func setupConstraints() {
         view.addSubview(searchBar)

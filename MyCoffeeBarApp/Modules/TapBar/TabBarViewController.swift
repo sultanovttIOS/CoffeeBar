@@ -17,18 +17,15 @@ final class TabBarViewController: UITabBarController {
         setupNavigationBar()
     }
     
-//        navigationItem.title = "Menu"
-//        navigationItem.hidesBackButton = true
-//        navigationItem.rightBarButtonItem = UIBarButtonItem(
-//            image: UIImage(systemName: "bell"),
-//            style: .plain,
-//            target: nil,
-//            action: #selector(bellTapped))
-//        navigationItem.rightBarButtonItem?.tintColor = .label
-//    }
-    
-    @objc
-    private func bellTapped() {
+    private func setupNavigationBar() {
+        //navigationItem.title = "Menu"
+        navigationItem.hidesBackButton = true
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            image: UIImage(systemName: "bell"),
+            style: .plain,
+            target: nil,
+            action: #selector(bellTapped))
+        navigationItem.rightBarButtonItem?.tintColor = .label
     }
     
     private func setupTabItems() {
@@ -55,31 +52,14 @@ final class TabBarViewController: UITabBarController {
         )
     }
     
-    private func setupNavigationBar() {
-//        guard let viewControllers = viewControllers as? [UINavigationController] else { return }
-//        
-//        for navigationController in viewControllers {
-//            guard let rootViewController = navigationController.viewControllers.first else { continue }
-//            
-//            // Проверяем тип корневого контроллера и устанавливаем соответствующий заголовок
-//            if rootViewController is MenuBarViewController {
-//                rootViewController.navigationItem.title = "Home"
-//            } else if rootViewController is BasketViewController {
-//                rootViewController.navigationItem.title = "Basket"
-//            } else if rootViewController is RegistrationViewController {
-//                rootViewController.navigationItem.title = "Location"
-//            } else if rootViewController is AuthorizationViewController {
-//                rootViewController.navigationItem.title = "Profile"
-//            }
-//            
-//            navigationController.navigationBar.topItem?.rightBarButtonItem = UIBarButtonItem(
-//                image: UIImage(systemName: "bell"),
-//                style: .plain,
-//                target: self,
-//                action: #selector(bellTapped)
-//            )
-//            navigationController.navigationBar.topItem?.rightBarButtonItem?.tintColor = .label
-//        }
+    @objc
+    private func bellTapped() {
+        
     }
-
+    
+    @objc
+    private func backButtonTapped() {
+        navigationController?.popViewController(animated: true)
+    }
 }
+
