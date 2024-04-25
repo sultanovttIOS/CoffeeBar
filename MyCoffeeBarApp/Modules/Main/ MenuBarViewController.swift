@@ -99,6 +99,7 @@ class  MenuBarViewController: UIViewController {
             }
         }
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
@@ -226,73 +227,69 @@ class  MenuBarViewController: UIViewController {
 extension  MenuBarViewController: UICollectionViewDataSource {
     func collectionView(
         _ collectionView: UICollectionView,
-        numberOfItemsInSection section: Int
-    ) -> Int {
-        if collectionView == menuBarCollectionView {
-            return categories.count
-        } else if collectionView == productsCollectionView {
-            return updatedProducts.count
+        numberOfItemsInSection section: Int) -> Int {
+            if collectionView == menuBarCollectionView {
+                return categories.count
+            } else if collectionView == productsCollectionView {
+                return updatedProducts.count
+            }
+            return 0
         }
-        return 0
-    }
     
     func collectionView(
         _ collectionView: UICollectionView,
-        cellForItemAt indexPath: IndexPath
-    ) -> UICollectionViewCell {
-        if collectionView == menuBarCollectionView {
-            let cell = collectionView.dequeueReusableCell(
-                withReuseIdentifier: MenuBarCell.reuseId,
-                for: indexPath) as! MenuBarCell
-            let model = categories[indexPath.row]
-            cell.fill(with: model)
-            cell.backgroundColor = indexPath.item == selectedCategoryIndex ? .red : .clear
-            return cell
-        } else if collectionView == productsCollectionView {
-            let cell = collectionView.dequeueReusableCell(
-                withReuseIdentifier: ProductsCell.reuseId,
-                for: indexPath) as! ProductsCell
-            let model = products[indexPath.row]
-            cell.fill(with: model)
-            return cell
-        } else {
-            return UICollectionViewCell()
+        cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+            if collectionView == menuBarCollectionView {
+                let cell = collectionView.dequeueReusableCell(
+                    withReuseIdentifier: MenuBarCell.reuseId,
+                    for: indexPath) as! MenuBarCell
+                let model = categories[indexPath.row]
+                cell.fill(with: model)
+                cell.backgroundColor = indexPath.item == selectedCategoryIndex ? .red : .clear
+                return cell
+            } else if collectionView == productsCollectionView {
+                let cell = collectionView.dequeueReusableCell(
+                    withReuseIdentifier: ProductsCell.reuseId,
+                    for: indexPath) as! ProductsCell
+                let model = products[indexPath.row]
+                cell.fill(with: model)
+                return cell
+            } else {
+                return UICollectionViewCell()
+            }
         }
-    }
 }
 
 extension  MenuBarViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(
         _ collectionView: UICollectionView,
         layout collectionViewLayout: UICollectionViewLayout,
-        sizeForItemAt indexPath: IndexPath
-    ) -> CGSize {
-        if collectionView == productsCollectionView {
-            return CGSize(width: 343, height: 89)
-        } else if collectionView == menuBarCollectionView {
-            switch indexPath.row {
-            case 0...14:
-                return CGSize(width: 105, height: 32)
-            default:
-                return CGSize(width: view.frame.width, height: 32)
+        sizeForItemAt indexPath: IndexPath) -> CGSize {
+            if collectionView == productsCollectionView {
+                return CGSize(width: 343, height: 89)
+            } else if collectionView == menuBarCollectionView {
+                switch indexPath.row {
+                case 0...14:
+                    return CGSize(width: 105, height: 32)
+                default:
+                    return CGSize(width: view.frame.width, height: 32)
+                }
+            } else {
+                return CGSize(width: 343, height: 89)
             }
-        } else {
-            return CGSize(width: 343, height: 89)
         }
-    }
     
     func collectionView(
         _ collectionView: UICollectionView,
         layout collectionViewLayout: UICollectionViewLayout,
-        insetForSectionAt section: Int
-    ) -> UIEdgeInsets {
-        if collectionView == productsCollectionView {
-            return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-        } else if collectionView == menuBarCollectionView {
-            return UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 15)
+        insetForSectionAt section: Int) -> UIEdgeInsets {
+            if collectionView == productsCollectionView {
+                return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+            } else if collectionView == menuBarCollectionView {
+                return UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 15)
+            }
+            return UIEdgeInsets()
         }
-        return UIEdgeInsets()
-    }
 }
 
 extension MenuBarViewController: UICollectionViewDelegate {
