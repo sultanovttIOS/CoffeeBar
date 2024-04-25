@@ -18,19 +18,19 @@ class TabBarController: UITabBarController {
     private func setupTabBar() {
         let menuViewController = createNavController(
             vc: MenuBarViewController(),
-            itemName: "Menu",
+            itemName: "Menu".localized(),
             itemImage: "house")
         let basketViewController = createNavController(
             vc: BasketViewController(),
-            itemName: "Basket",
+            itemName: "Basket".localized(),
             itemImage: "basket")
         let productViewController = createNavController(
             vc: SMSViewController(),
-            itemName: "Product",
+            itemName: "Product".localized(),
             itemImage: "safari")
         let profileViewController = createNavController(
             vc: ProfileTableViewController(),
-            itemName: "Profile",
+            itemName: "Profile".localized(),
             itemImage: "person")
         
         viewControllers = [

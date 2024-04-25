@@ -29,7 +29,7 @@ class ProfileCell: UITableViewCell {
         view.addTarget(self, action: #selector(switchTapped), for: .valueChanged)
         return view
     }()
-    
+        
     weak var delegate: ProfileDelegate?
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -61,22 +61,29 @@ class ProfileCell: UITableViewCell {
         }
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        nameLabel.textColor = .label
+        nameLabel.text = nil
+        switchTheme.isHidden = true
+    }
+    
     func fillCell(with model: SectionItem, at indexPath: IndexPath) {
         let title = model.titles[indexPath.row]
         nameLabel.text = title
         
         switch indexPath {
-        case [0,0]:
-            print("ru")
-        case [0,1]:
-            print("en")
         case [2,0]:
             switchTheme.isHidden = false
+            if UserDefaults.standard.bool(forKey: "theme") {
+                nameLabel.text = "Dark".localized()
+                switchTheme.isOn = true
+            } else {
+                nameLabel.text = "Light".localized()
+                switchTheme.isOn = false
+            }
         case [3,1]:
             nameLabel.textColor = .red
-            print("log out")
-        case [3,0]:
-            print("add account")
         default:
             ()
         }
@@ -85,12 +92,6 @@ class ProfileCell: UITableViewCell {
     @objc
     private func switchTapped(param: UISwitch) {
         delegate?.didTheme(isOn: param.isOn)
-        if param.isOn {
-            nameLabel.textColor = .white
-            nameLabel.text = "Dark"
-        } else {
-            nameLabel.textColor = .label
-            nameLabel.text = "Light"
-        }
     }
+
 }

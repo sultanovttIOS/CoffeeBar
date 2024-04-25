@@ -15,8 +15,6 @@ class HeaderTableViewCell: UITableViewHeaderFooterView {
         return view
     }()
     
-    private let headerArray = ["Language", "About user", "Theme", "Account"]
-
     override init(reuseIdentifier: String?) {
         super.init(reuseIdentifier: reuseIdentifier)
         setConstraints()

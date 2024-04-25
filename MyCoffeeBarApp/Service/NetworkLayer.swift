@@ -8,8 +8,10 @@
 import Foundation
 
 class NetworkLayer {
+    
     private let baseURL = URL(
         string: "https://www.themealdb.com/api/json/v1/1/")!
+    
     private let decoder = JSONDecoder()
     private let encoder = JSONEncoder()
     

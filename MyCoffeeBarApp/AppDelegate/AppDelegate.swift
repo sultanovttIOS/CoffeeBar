@@ -12,10 +12,25 @@ import FirebaseCore
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
-        FirebaseApp.configure()
+         //Выполним чтение из UserDefaults и установку языка на фоновом потоке
+                DispatchQueue.global(qos: .background).async {
+                    if let savedLanguageString = UserDefaults.standard.string(forKey: "selectedLanguage"),
+                       let savedLanguage = LanguageType(rawValue: savedLanguageString) {
+                        AppLanguageManager.shared.setAppLanguage(language: savedLanguage)
+                    } else {
+                        AppLanguageManager.shared.setAppLanguage(language: .en)
+                    }
+        
+                    // После установки языка выполним конфигурацию Firebase на главном потоке
+                    DispatchQueue.main.async {
+                        FirebaseApp.configure()
+                    }
+                }
+        
+//        FirebaseApp.configure()
         return true
     }
+
 
     // MARK: UISceneSession Lifecycle
 
