@@ -28,7 +28,7 @@ class PhoneNumberView: UIView {
     
     private lazy var phoneNumberTf: UITextField = {
         let view = UITextField()
-        view.placeholder = "With phone number"
+        view.placeholder = "Phone number"
         view.leftViewMode = .always
         let leftView = UIView(frame: CGRect(
             x: 0,

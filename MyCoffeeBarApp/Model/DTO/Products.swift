@@ -8,30 +8,43 @@
 import Foundation
 
 //MARK: Доработать
-struct Products: Codable {
-    let meals: [Product]
-
-//    enum CodingKeys: String, CodingKey {
-//        case product = "meals"
-//    }
-//    
-//    static func ==(lhs: Products, rhs: Products) -> Bool {
-//        return lhs.product == rhs.product
-//    }
+struct ProductResponse: Codable {
+    let products: [ProductPagination]
 }
 
-struct Product: Codable {
-    let strMeal: String
-    let strMealThumb: String
-    let idMeal: String
+struct ProductPagination: Codable {
+    let title: String
+    let thumbnail: String
+    let price: Int
+    let brand: String
+}
+
+struct Products: Codable {
+    let products: [Product]
     
-//    enum CodingKeys: String, CodingKey {
-//        case title = "strMeal"
-//    }
-//    
-//    static func ==(lhs: Product, rhs: Product) -> Bool {
-//        return lhs.title == rhs.title
-//    }
+    enum CodingKeys: String, CodingKey {
+        case products = "meals"
+    }
+    
+    static func ==(lhs: Products, rhs: Products) -> Bool {
+        return lhs.products == rhs.products
+    }
+}
+
+struct Product: Codable, Equatable {
+    let title: String
+    let description: String
+    let id: String
+    
+    enum CodingKeys: String, CodingKey {
+        case title = "strMeal"
+        case description = "strMealThumb"
+        case id = "idMeal"
+    }
+    
+    static func ==(lhs: Product, rhs: Product) -> Bool {
+        return lhs.title == rhs.title && lhs.description == rhs.description && lhs.id == rhs.id
+    }
 }
 
 struct Meals: Codable {

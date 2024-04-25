@@ -9,7 +9,8 @@ import UIKit
 import SnapKit
 
 class ProductViewController: UIViewController {
-    private let productDetailsView = DescriptionView()
+    
+    private let productDetailsView = ProductView()
     var idMeal: String!
     private let networkLayer = NetworkLayer()
     
@@ -21,19 +22,39 @@ class ProductViewController: UIViewController {
     }
     
     private func setupUI() {
+        setupConstraints()
+        setupNavigationBar()
+        makeToOrder()
+    }
+    
+    private func setupConstraints() {
         view.addSubview(productDetailsView)
         productDetailsView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
-        productDetailsView.didOrderTapped = { [ weak self ] in
-            guard let self else { return }
-            navigationController?.popToRootViewController(animated: true)
-        }
+    }
+    
+    private func makeToOrder() {
+//        productDetailsView.didOrderTapped = { [weak self] in
+//           // guard let self else { return }
+//            //MARK: доработать
+//        }
+    }
+    
+    private func setupNavigationBar() {
+        let leftBtn = UIButton(type: .system)
+        leftBtn.tintColor = .label
+        leftBtn.setImage(UIImage(systemName: "chevron.backward"), for: .normal)
+        leftBtn.addTarget(
+            self, action: #selector(backButtonTapped),
+            for: .touchUpInside)
+        let leftButton = UIBarButtonItem(customView: leftBtn)
+        navigationItem.leftBarButtonItem = leftButton
     }
     
     func loadMealDetails(idMeal: String) {
         networkLayer.fetchIdMealDetails(by: idMeal) { [weak self] result in
-            guard let self = self else { return }
+            guard let self else { return }
             switch result {
             case .success(let mealDetails):
                 DispatchQueue.main.async {
@@ -43,5 +64,10 @@ class ProductViewController: UIViewController {
                 print(error.localizedDescription)
             }
         }
+    }
+    
+    @objc
+    private func backButtonTapped() {
+        navigationController?.popViewController(animated: true)
     }
 }

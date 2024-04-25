@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SnapKit
 
 protocol PhoneNumberDelegate: AnyObject {
     func didLoginBtn(with number: String)
@@ -23,6 +24,17 @@ class PhoneNumberViewController: UIViewController {
     private func setupUI() {
         setupConstraints()
         phonView.delegate = self
+        setupNavigationBar()
+    }
+    
+    private func setupNavigationBar() {
+        let leftBtn = UIButton(type: .system)
+        leftBtn.tintColor = .label
+        leftBtn.setImage(UIImage(systemName: "chevron.backward"), for: .normal)
+        leftBtn.addTarget(self, action: #selector(backButtonTapped),
+                          for: .touchUpInside)
+        let leftButton = UIBarButtonItem(customView: leftBtn)
+        navigationItem.leftBarButtonItem = leftButton
     }
     
     private func setupConstraints() {
@@ -33,8 +45,13 @@ class PhoneNumberViewController: UIViewController {
     }
     
     private func loginBtnTapped() {
-        let vc = MenuBarViewController()
+        let vc = TabBarController()
         navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    @objc
+    private func backButtonTapped() {
+        navigationController?.popViewController(animated: true)
     }
 }
 
@@ -42,7 +59,7 @@ extension PhoneNumberViewController: PhoneNumberDelegate {
     func didLoginBtn(with number: String) {
         AuthService.shared.sendSms(with: number) { result in
             DispatchQueue.main.async {
-                switch result { //MARK: extension with phoneNumber
+                switch result { 
                 case .success(()):
                     self.loginBtnTapped()
                 case .failure(let error):

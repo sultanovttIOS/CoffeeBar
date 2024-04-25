@@ -31,14 +31,14 @@ class SplashViewController: UIViewController {
     }
     
     private func showAuthViewController() {
-        let authViewController = AuthorizationViewController()
-        let navVc = UINavigationController(rootViewController: authViewController)
+        let startVc = RegistrationViewController()
+        let navVc = UINavigationController(rootViewController: startVc)
         navVc.modalPresentationStyle = .fullScreen
         navigationController?.present(navVc, animated: false)
     }
     
     private func showTabBar() {
-        let tabBarViewController = TabBarViewController()
+        let tabBarViewController = TabBarController()
         let navVc = UINavigationController(rootViewController: tabBarViewController)
         navVc.modalPresentationStyle = .fullScreen
         navigationController?.present(navVc, animated: false)
