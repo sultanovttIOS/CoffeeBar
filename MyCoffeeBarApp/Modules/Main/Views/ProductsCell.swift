@@ -22,9 +22,10 @@ class ProductsCell: UICollectionViewCell {
     private lazy var titleLabel: UILabel = {
         let view = UILabel()
         view.font = .systemFont(ofSize: 16)
+        view.numberOfLines = 0
+        view.lineBreakMode = .byWordWrapping
         view.textAlignment = .left
         view.textColor = .darkText
-        view.text = "111"
         return view
     }()
     
@@ -114,7 +115,8 @@ class ProductsCell: UICollectionViewCell {
         stackLabel.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(8)
             make.leading.equalTo(cellImage.snp.trailing).offset(16)
-            make.width.equalTo(144)
+            //make.width.equalTo(144)
+            make.trailing.equalToSuperview().offset(-16)
             make.bottom.equalToSuperview().offset(-18)
         }
         stackLabel.addArrangedSubview(titleLabel)

@@ -54,7 +54,7 @@ class AuthorizationViewController: UIViewController {
     }
     
     private func loginBtnTapped() {
-        let vc = TabBarViewController()
+        let vc = TabBarController()
         navigationController?.pushViewController(vc, animated: true)
     }
     
