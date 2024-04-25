@@ -1,0 +1,26 @@
+/* 
+  Localizable.strings
+  MyCoffeeBarApp
+
+  Created by Alisher Sultanov on 25/4/24.
+  
+*/
+"LANGUAGE" = "ЯЗЫК";
+"ABOUT USER" = "О ПОЛЬЗОВАТЕЛЕ";
+"English" = "English";
+"THEME" = "ТЕМА";
+"Menu" = "Меню";
+"ACCOUNT" = "АККАУНТ";
+"Русский" = "Русский";
+"Search" = "Искать";
+"Phone number" = "Номер телефона";
+"Yes" = "Yes";
+"No" = "No";
+"History" = "История";
+"Basket" = "Корзинка";
+"Log out" = "Выйти из аккаунта";
+"Light" = "Светлая";
+"Dark" = "Темная";
+"Add account" = "Добавить аккаунт";
+"Profile" = "Профиль";
+"User" = "Пользователь";

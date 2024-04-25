@@ -9,7 +9,6 @@ import Foundation
 
 enum LanguageType: String {
     
-    case kg = "kg"
     case ru = "ru"
     case en = "en"
 }
@@ -17,11 +16,8 @@ enum LanguageType: String {
 class AppLanguageManager {
     
     static let shared = AppLanguageManager()
-    
     private var currentLanguage: LanguageType?
-    
     private var currentBundle: Bundle = Bundle.main
-    
     var bundle: Bundle {
         return currentBundle
     }

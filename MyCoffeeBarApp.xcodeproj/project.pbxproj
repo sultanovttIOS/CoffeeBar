@@ -16,6 +16,7 @@
 		CE8A788E2BDA5083004F300B /* HeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8A788D2BDA5083004F300B /* HeaderTableViewCell.swift */; };
 		CE8A78912BDA5C80004F300B /* SectionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8A78902BDA5C80004F300B /* SectionData.swift */; };
 		CE8A78932BDA8C27004F300B /* AppLanguageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8A78922BDA8C27004F300B /* AppLanguageManager.swift */; };
+		CE8A78972BDA917B004F300B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = CE8A78952BDA917B004F300B /* Localizable.strings */; };
 		CEE71C932BBC468000AD99E4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE71C922BBC468000AD99E4 /* AppDelegate.swift */; };
 		CEE71C952BBC468000AD99E4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE71C942BBC468000AD99E4 /* SceneDelegate.swift */; };
 		CEE71C972BBC468000AD99E4 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE71C962BBC468000AD99E4 /* RegistrationViewController.swift */; };
@@ -57,6 +58,9 @@
 		CE8A788D2BDA5083004F300B /* HeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderTableViewCell.swift; sourceTree = "<group>"; };
 		CE8A78902BDA5C80004F300B /* SectionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionData.swift; sourceTree = "<group>"; };
 		CE8A78922BDA8C27004F300B /* AppLanguageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLanguageManager.swift; sourceTree = "<group>"; };
+		CE8A78942BDA9128004F300B /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		CE8A78962BDA917B004F300B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		CE8A78982BDA9198004F300B /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		CEE71C8F2BBC468000AD99E4 /* MyCoffeeBarApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyCoffeeBarApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEE71C922BBC468000AD99E4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CEE71C942BBC468000AD99E4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -211,6 +215,7 @@
 		CEE71CA72BBC496500AD99E4 /* Resourse */ = {
 			isa = PBXGroup;
 			children = (
+				CE8A78952BDA917B004F300B /* Localizable.strings */,
 				CEE71CF02BC819ED00AD99E4 /* GoogleService-Info.plist */,
 				CEE71C9D2BBC468200AD99E4 /* LaunchScreen.storyboard */,
 				CEE71C9B2BBC468200AD99E4 /* Assets.xcassets */,
@@ -401,6 +406,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ru,
 			);
 			mainGroup = CEE71C862BBC468000AD99E4;
 			productRefGroup = CEE71C902BBC468000AD99E4 /* Products */;
@@ -418,6 +424,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CEE71C9C2BBC468200AD99E4 /* Assets.xcassets in Resources */,
+				CE8A78972BDA917B004F300B /* Localizable.strings in Resources */,
 				CEE71CF12BC819ED00AD99E4 /* GoogleService-Info.plist in Resources */,
 				CEE71C9F2BBC468200AD99E4 /* Base in Resources */,
 			);
@@ -511,10 +518,20 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		CE8A78952BDA917B004F300B /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CE8A78962BDA917B004F300B /* en */,
+				CE8A78982BDA9198004F300B /* ru */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		CEE71C9D2BBC468200AD99E4 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				CEE71C9E2BBC468200AD99E4 /* Base */,
+				CE8A78942BDA9128004F300B /* ru */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -527,6 +544,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -590,6 +608,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
