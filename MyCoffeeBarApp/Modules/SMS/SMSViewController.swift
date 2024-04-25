@@ -32,6 +32,6 @@ class SMSViewController: UIViewController {
 
 extension SMSViewController: SMSDelegate {
     func didLoginBtnTapped() {
-        navigationController?.pushViewController(TabBarViewController(), animated: true)
+        navigationController?.pushViewController(TabBarController(), animated: true)
     }
 }

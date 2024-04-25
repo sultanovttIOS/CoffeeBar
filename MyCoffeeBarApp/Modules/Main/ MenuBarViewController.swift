@@ -106,22 +106,22 @@ class  MenuBarViewController: UIViewController {
     
     private func setupUI() {
         view.backgroundColor = .systemBackground
+        setupNavigationBar()
         setupConstraints()
         fetchCategories()
         updatedProducts = products
     }
 
-//    private func setupNavigationBar() {
-//        navigationItem.title = "Menu"
-//        navigationItem.rightBarButtonItem = UIBarButtonItem(
-//            image: UIImage(systemName: "bell"),
-//            style: .plain,
-//            target: nil,
-//            action: #selector(bellTapped))
-//        navigationItem.rightBarButtonItem?.tintColor = .label
-//        navigationItem.hidesBackButton = true
-//         navigationController?.navigationBar.prefersLargeTitles = true
-//    }
+    private func setupNavigationBar() {
+        title = "Menu"
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            image: UIImage(systemName: "bell"),
+            style: .plain,
+            target: self,
+            action: #selector(bellTapped))
+        navigationItem.rightBarButtonItem?.tintColor = .label
+        navigationItem.hidesBackButton = true
+    }
     
     private func setupConstraints() {
         view.addSubview(searchBar)
@@ -201,6 +201,7 @@ class  MenuBarViewController: UIViewController {
     
     @objc
     private func bellTapped() {
+        print("Tap bell")
     }
     
     @objc
@@ -307,6 +308,7 @@ extension MenuBarViewController: UICollectionViewDelegate {
             menuBarCollectionView.reloadData()
             let category = categories[indexPath.item]
             selectedCategory = category
+            
         }
         if collectionView == productsCollectionView {
             if indexPath.row < products.count {

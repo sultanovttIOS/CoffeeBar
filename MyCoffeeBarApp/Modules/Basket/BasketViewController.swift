@@ -52,8 +52,8 @@ class BasketViewController: UIViewController {
             }
         }
     }
-    
     private var page = 1
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
@@ -63,6 +63,7 @@ class BasketViewController: UIViewController {
         view.backgroundColor = .systemBackground
         setupConstraints()
         fetchProducts()
+        setupNavigationBar()
     }
     
     private func setupConstraints() {
@@ -80,15 +81,15 @@ class BasketViewController: UIViewController {
         }
     }
     
-//    private func setupNavigationBar() {
-//        self.navigationController?.navigationItem.title = "Basket"
-//        self.navigationController?.navigationItem.rightBarButtonItem = UIBarButtonItem(
-//            image: UIImage(systemName: "bell"),
-//            style: .plain,
-//            target: nil,
-//            action: #selector(bellTapped))
-//        self.navigationController?.navigationItem.rightBarButtonItem?.tintColor = .label
-//        
+    private func setupNavigationBar() {
+        title = "Basket"
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            image: UIImage(systemName: "bell"),
+            style: .plain,
+            target: self,
+            action: #selector(bellTapped))
+        navigationItem.rightBarButtonItem?.tintColor = .label
+//
 //        let leftBtn = UIButton(type: .system)
 //        leftBtn.tintColor = .label
 //        leftBtn.setImage(UIImage(systemName: "chevron.backward"), for: .normal)
@@ -96,8 +97,14 @@ class BasketViewController: UIViewController {
 //            self, action: #selector(backButtonTapped),
 //            for: .touchUpInside)
 //        let leftButton = UIBarButtonItem(customView: leftBtn)
-//        self.navigationController?.navigationItem.leftBarButtonItem = leftButton
-//    }
+//        navigationItem.leftBarButtonItem = leftButton
+    }
+    
+    @objc
+    private func bellTapped() {
+        //MARK: Добавить уведомления
+        print("TapBell")
+    }
     
     private func fetchProducts() {
         isLoading = true

@@ -45,7 +45,7 @@ class PhoneNumberViewController: UIViewController {
     }
     
     private func loginBtnTapped() {
-        let vc = TabBarViewController()
+        let vc = TabBarController()
         navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -59,7 +59,7 @@ extension PhoneNumberViewController: PhoneNumberDelegate {
     func didLoginBtn(with number: String) {
         AuthService.shared.sendSms(with: number) { result in
             DispatchQueue.main.async {
-                switch result { //MARK: extension with phoneNumber
+                switch result { 
                 case .success(()):
                     self.loginBtnTapped()
                 case .failure(let error):

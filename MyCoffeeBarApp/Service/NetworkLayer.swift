@@ -86,7 +86,7 @@ class NetworkLayer {
         guard let url = components?.url else { return }
         let request = URLRequest(url: url)
         
-        URLSession.shared.dataTask(with: request) { data, _, error in
+        URLSession.shared.dataTask(with: request) { data, response, error in
             if let data {
                 do {
                     let model = try self.decoder.decode(ProductResponse.self, from: data)
