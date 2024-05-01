@@ -108,7 +108,11 @@ class BasketViewController: UIViewController {
     
     private func fetchProducts() {
         isLoading = true
-        networkLayer.fetchProductsPagination(with: page, limit: 10) { [weak self] result in
+        networkLayer.fetchProductsPagination(
+            with: page,
+            limit: 10
+        ) {
+            [weak self] result in
             guard let self else { return }
             switch result {
             case .success(let products):
@@ -162,7 +166,8 @@ extension BasketViewController: UICollectionViewDelegateFlowLayout {
         layout collectionViewLayout: UICollectionViewLayout,
         insetForSectionAt section: Int) -> UIEdgeInsets {
             if collectionView == productCollectionView {
-                return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+                return UIEdgeInsets(
+                    top: 0, left: 0, bottom: 0, right: 0)
             }
             return UIEdgeInsets()
         }

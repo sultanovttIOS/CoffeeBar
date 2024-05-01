@@ -1,11 +1,11 @@
 //
-//  HeaderTitle.swift
+//  Section.swift
 //  MyCoffeeBarApp
 //
-//  Created by Alisher Sultanov on 25/4/24.
+//  Created by Alisher Sultanov on 29/4/24.
 //
 
-import UIKit
+import Foundation
 
 struct SectionData {
     var title: String

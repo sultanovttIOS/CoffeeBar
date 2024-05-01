@@ -6,8 +6,13 @@
 //
 
 import UIKit
+import SnapKit
 
-class SMSCodeView: UIView {
+protocol SMSDelegate: AnyObject {
+    func verify()
+}
+
+class SMSView: UIView {
     
     private lazy var titleImage: UIImageView = {
         let view = UIImageView()
@@ -38,49 +43,41 @@ class SMSCodeView: UIView {
         return view
     }()
     
-    lazy var phoneNumberTf: UITextField = {
-        let view = UITextField()
-        view.placeholder = "Введите код"
-        view.leftViewMode = .always
-        let leftView = UIView(frame: CGRect(x: 0,
-                                            y: 0,
-                                            width: 56,
-                                            height: 56))
-        let image = UIImageView(frame: CGRect(x: 16,
-                                              y: 16,
-                                              width: 24,
-                                              height: 24))
-        image.image = UIImage(named: "phone_icon")
-        image.tintColor = .lightGray
-        leftView.addSubview(image)
-        view.leftView = leftView
-        view.backgroundColor = .systemGray6
-        view.layer.cornerRadius = 25
-        view.addTarget(
-            self,
-            action: #selector(loginBtnTapped),
-            for: .valueChanged)
-        return view
-    }()
-            
+    private lazy var fieldStack = UIStackView()
+    private lazy var verifyFields = [VerifyTextField]()
+    
     weak var delegate: SMSDelegate?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = .systemBackground
+        configureVerifyTextField()
         setupConstraints()
+        verifyFields[0].becomeFirstResponder()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
+    private func configureVerifyTextField() {
+        fieldStack.spacing = 5
+        fieldStack.distribution = .fillEqually
+        
+        for number in 0...5 {
+            let verifyTextField = VerifyTextField()
+            verifyTextField.tag = number
+            verifyTextField.fieldDelegate = self
+            verifyFields.append(verifyTextField)
+            fieldStack.addArrangedSubview(verifyTextField)
+        }
+        addSubview(fieldStack)
+    }
+    
     private func setupConstraints() {
         addSubview(titleImage)
         addSubview(subTitleLabel)
         addSubview(loginButton)
-        addSubview(phoneNumberTf)
-        
         titleImage.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(155)
             make.width.equalTo(170)
@@ -93,22 +90,47 @@ class SMSCodeView: UIView {
             make.height.equalTo(34)
             make.left.equalToSuperview().offset(16)
         }
-        phoneNumberTf.snp.makeConstraints { make in
+        fieldStack.snp.makeConstraints { make in
             make.top.equalTo(subTitleLabel.snp.bottom).offset(32)
             make.width.equalTo(343)
             make.height.equalTo(56)
             make.centerX.equalToSuperview()
         }
         loginButton.snp.makeConstraints { make in
-            make.top.equalTo(phoneNumberTf.snp.bottom).offset(20)
+            make.top.equalTo(fieldStack.snp.bottom).offset(20)
             make.width.equalTo(343)
             make.height.equalTo(56)
             make.centerX.equalToSuperview()
         }
     }
     
+    func getFieldCode() -> String {
+        var fieldsCode = ""
+        verifyFields.forEach {
+            fieldsCode.append($0.text ?? "")
+        }
+        return fieldsCode
+    }
+    
     @objc
     private func loginBtnTapped() {
-        delegate?.didLoginBtnTapped()
+        delegate?.verify()
+    }
+}
+
+extension SMSView: FieldsDelagate {
+    func activeNextField(tag: Int) {
+        if tag != verifyFields.count - 1 {
+            verifyFields[tag + 1].becomeFirstResponder()
+        } else {
+            delegate?.verify()
+        }
+    }
+    
+    func activePreviosField(tag: Int) {
+        if tag != 0 {
+            verifyFields[tag - 1].text = ""
+            verifyFields[tag - 1].becomeFirstResponder()
+        }
     }
 }

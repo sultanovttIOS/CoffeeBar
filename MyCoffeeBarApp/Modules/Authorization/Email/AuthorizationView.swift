@@ -166,6 +166,6 @@ class AuthorizationView: UIView {
     
     @objc
     private func phoneBtnTapped() {
-        delegate?.didPhoneBtn()
+        delegate?.didPhoneNumberBtn()
     }
 }

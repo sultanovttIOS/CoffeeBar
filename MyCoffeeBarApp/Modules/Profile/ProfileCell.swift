@@ -26,13 +26,19 @@ class ProfileCell: UITableViewCell {
     private lazy var switchTheme: UISwitch = {
         let view = UISwitch()
         view.isHidden = true
-        view.addTarget(self, action: #selector(switchTapped), for: .valueChanged)
+        view.addTarget(
+            self, 
+            action: #selector(switchTapped),
+            for: .valueChanged)
         return view
     }()
         
     weak var delegate: ProfileDelegate?
     
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+    override init(
+        style: UITableViewCell.CellStyle,
+        reuseIdentifier: String?
+    ) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setConstraints()
         self.selectionStyle = .none
@@ -68,7 +74,10 @@ class ProfileCell: UITableViewCell {
         switchTheme.isHidden = true
     }
     
-    func fillCell(with model: SectionItem, at indexPath: IndexPath) {
+    func fillCell(
+        with model: SectionItem,
+        at indexPath: IndexPath
+    ) {
         let title = model.titles[indexPath.row]
         nameLabel.text = title
         
@@ -91,7 +100,7 @@ class ProfileCell: UITableViewCell {
     
     @objc
     private func switchTapped(param: UISwitch) {
-        delegate?.didTheme(isOn: param.isOn)
+        delegate?.didSwitchTheme(isOn: param.isOn)
     }
 
 }
