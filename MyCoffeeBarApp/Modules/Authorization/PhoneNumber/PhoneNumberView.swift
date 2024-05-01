@@ -28,14 +28,16 @@ class PhoneNumberView: UIView {
     
     private lazy var phoneNumberTf: UITextField = {
         let view = UITextField()
-        view.placeholder = "Phone number"
+        view.placeholder = "+996 555 555 555"
         view.leftViewMode = .always
-        let leftView = UIView(frame: CGRect(
+        let leftView = UIView(
+            frame: CGRect(
             x: 0,
             y: 0,
             width: 56,
             height: 56))
-        let image = UIImageView(frame: CGRect(
+        let image = UIImageView(
+            frame: CGRect(
             x: 16,
             y: 16,
             width: 24,
@@ -116,3 +118,4 @@ class PhoneNumberView: UIView {
         )
     }
 }
+

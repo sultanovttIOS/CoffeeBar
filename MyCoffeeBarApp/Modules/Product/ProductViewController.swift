@@ -8,6 +8,10 @@
 import UIKit
 import SnapKit
 
+protocol ProductDelegate: AnyObject {
+    func didOrderTapped()
+}
+
 class ProductViewController: UIViewController {
     
     private let productDetailsView = ProductView()
@@ -35,16 +39,15 @@ class ProductViewController: UIViewController {
     }
     
     private func makeToOrder() {
-//        productDetailsView.didOrderTapped = { [weak self] in
-//           // guard let self else { return }
-//            //MARK: доработать
-//        }
+        
     }
     
     private func setupNavigationBar() {
         let leftBtn = UIButton(type: .system)
         leftBtn.tintColor = .label
-        leftBtn.setImage(UIImage(systemName: "chevron.backward"), for: .normal)
+        leftBtn.setImage(
+            UIImage(systemName: "chevron.backward"),
+            for: .normal)
         leftBtn.addTarget(
             self, action: #selector(backButtonTapped),
             for: .touchUpInside)
@@ -53,12 +56,16 @@ class ProductViewController: UIViewController {
     }
     
     func loadMealDetails(idMeal: String) {
-        networkLayer.fetchIdMealDetails(by: idMeal) { [weak self] result in
+        networkLayer.fetchIdMealDetails(
+            by: idMeal
+        ) {
+            [weak self] result in
             guard let self else { return }
             switch result {
             case .success(let mealDetails):
                 DispatchQueue.main.async {
-                    self.productDetailsView.fill(with: mealDetails)
+                    self.productDetailsView.fill(
+                        with: mealDetails)
                 }
             case .failure(let error):
                 print(error.localizedDescription)
@@ -69,5 +76,11 @@ class ProductViewController: UIViewController {
     @objc
     private func backButtonTapped() {
         navigationController?.popViewController(animated: true)
+    }
+}
+
+extension ProductViewController: ProductDelegate {
+    func didOrderTapped() {
+        print("didOrderTapp")
     }
 }

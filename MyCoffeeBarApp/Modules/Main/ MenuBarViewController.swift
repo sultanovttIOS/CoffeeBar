@@ -12,6 +12,7 @@ class  MenuBarViewController: UIViewController {
     private lazy var searchBar: UISearchBar = {
         let view = UISearchBar()
         view.placeholder = "Search"
+        view.backgroundImage = UIImage()
         return view
     }()
     
@@ -177,7 +178,10 @@ class  MenuBarViewController: UIViewController {
     
     private func fetchProducts(by category: Category) {
         isLoading = true
-        networkLayer.fetchProducts(by: category.title) { [weak self] result in
+        networkLayer.fetchProducts(
+            by: category.title
+        ) {
+            [weak self] result in
             guard let self else { return }
             isLoading = false
             switch result {
