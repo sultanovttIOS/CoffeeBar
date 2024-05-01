@@ -13,6 +13,12 @@ class TabBarController: UITabBarController {
         super.viewDidLoad()
         setupTabBar()
         setupTabBarColors()
+        //navigationController?.isNavigationBarHidden = true
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: animated)
     }
     
     private func setupTabBar() {
@@ -25,8 +31,8 @@ class TabBarController: UITabBarController {
             itemName: "Basket".localized(),
             itemImage: "basket")
         let productViewController = createNavController(
-            vc: SMSViewController(),
-            itemName: "Product".localized(),
+            vc: CompasViewController(),
+            itemName: "Compas".localized(),
             itemImage: "safari")
         let profileViewController = createNavController(
             vc: ProfileTableViewController(),
@@ -39,7 +45,7 @@ class TabBarController: UITabBarController {
     }
     
     private func setupTabBarColors() {
-        tabBar.backgroundColor = .white
+        tabBar.backgroundColor = .systemBackground
         tabBar.tintColor = .orange
         tabBar.unselectedItemTintColor = .label
     }
@@ -47,7 +53,7 @@ class TabBarController: UITabBarController {
     private func createNavController(
         vc: UIViewController,
         itemName: String,
-        itemImage: String) -> UINavigationController {
+        itemImage: String) -> UIViewController {
             let item = UITabBarItem(
                 title: itemName,
                 image: UIImage(

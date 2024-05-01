@@ -30,9 +30,12 @@ class PhoneNumberViewController: UIViewController {
     private func setupNavigationBar() {
         let leftBtn = UIButton(type: .system)
         leftBtn.tintColor = .label
-        leftBtn.setImage(UIImage(systemName: "chevron.backward"), for: .normal)
-        leftBtn.addTarget(self, action: #selector(backButtonTapped),
-                          for: .touchUpInside)
+        leftBtn.setImage(UIImage(
+            systemName: "chevron.backward"), for: .normal)
+        leftBtn.addTarget(
+            self,
+            action: #selector(backButtonTapped),
+            for: .touchUpInside)
         let leftButton = UIBarButtonItem(customView: leftBtn)
         navigationItem.leftBarButtonItem = leftButton
     }
@@ -45,7 +48,7 @@ class PhoneNumberViewController: UIViewController {
     }
     
     private func loginBtnTapped() {
-        let vc = TabBarController()
+        let vc = SMSViewController()
         navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -57,9 +60,11 @@ class PhoneNumberViewController: UIViewController {
 
 extension PhoneNumberViewController: PhoneNumberDelegate {
     func didLoginBtn(with number: String) {
-        AuthService.shared.sendSms(with: number) { result in
+        AuthService.shared.sendSms(with: number
+        ) {
+            result in
             DispatchQueue.main.async {
-                switch result { 
+                switch result {
                 case .success(()):
                     self.loginBtnTapped()
                 case .failure(let error):

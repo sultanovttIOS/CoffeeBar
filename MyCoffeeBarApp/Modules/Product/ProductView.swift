@@ -69,8 +69,7 @@ class ProductView: UIView {
     }()
     
     var idMeal: String?
-    
-    var didOrderTapped: (() -> Void)?
+    weak var delegate: ProductDelegate?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -90,7 +89,10 @@ class ProductView: UIView {
         areaLabel.text = item.strArea
         categoryLabel.text = item.strCategory
         descriptionLabel.text = item.strInstructions
-        ImageDownloader.shared.loadImage(with: item.strMealThumb) { result in
+        ImageDownloader.shared.loadImage(
+            with: item.strMealThumb
+        ) {
+            result in
             if case .success(let image) = result {
                 DispatchQueue.main.async {
                     self.productImage.image = image
@@ -147,6 +149,6 @@ class ProductView: UIView {
     
     @objc
     private func buyBtnTapped() {
-        didOrderTapped?()
+        delegate?.didOrderTapped()
     }
 }

@@ -16,6 +16,7 @@ class MenuBarCell: UICollectionViewCell {
         view.backgroundColor = .clear
         return view
     }()
+    
     private lazy var titleLabel: UILabel = {
         let view = UILabel()
         view.font = .systemFont(ofSize: 16)

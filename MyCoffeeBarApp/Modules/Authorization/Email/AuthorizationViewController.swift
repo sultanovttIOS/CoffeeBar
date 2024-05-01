@@ -11,9 +11,8 @@ import SnapKit
 protocol AuthorizationViewControllerDelegate: AnyObject {
     func didLoginBtn(
         with email: String,
-        password: String
-    )
-    func didPhoneBtn()
+        password: String)
+    func didPhoneNumberBtn()
 }
 
 class AuthorizationViewController: UIViewController {
@@ -64,22 +63,26 @@ class AuthorizationViewController: UIViewController {
 }
 
 extension AuthorizationViewController: AuthorizationViewControllerDelegate {
+    func didPhoneNumberBtn() {
+        let vc = PhoneNumberViewController()
+        navigationController?.pushViewController(vc, animated: true)
+    }
     
     func didLoginBtn(with email: String, password: String) {
-        AuthService.shared.signIn(with: email, password: password) { result in
+        AuthService.shared.signIn(
+            with: email,
+            password: password
+        ) {
+            result in
             DispatchQueue.main.async {
                     switch result {
                     case .success(()):
                         self.loginBtnTapped()
                     case .failure(let error):
+                        self.showAlert()
                         print(error.localizedDescription)
                 }
             }
         }
-    }
-    
-    func didPhoneBtn() {
-        let vc = PhoneNumberViewController()
-        navigationController?.pushViewController(vc, animated: true)
     }
 }
